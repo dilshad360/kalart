@@ -1,17 +1,24 @@
-import Hero from './components/Hero'
-import NavBar from './components/NavBar'
-
+import Hero from './components/Home/Hero'
+import NavBar from './components/Home/NavBar'
+import Captains from './components/Home/Captains'
+import Footer from './components/Home/Footer'
+import Committe from './components/Home/Committe'
+import ScoreBoard from './components/Home/ScoreBoard'
+import Individual from './components/Home/Individual'
+import Result from './components/Home/Result'
 function Home() {
-  
+
 
   return (
     <div>
-      <NavBar/>
-      <Hero/>
-      Home page
-      <h1 className="text-3xl font-bold underline ">
-      Hello world!
-    </h1>
+      <NavBar />
+      <Hero />
+      <ScoreBoard />
+      <Individual />
+      <Result />
+      <Committe />
+      <Captains />
+      <Footer />
     </div>
   )
 }
