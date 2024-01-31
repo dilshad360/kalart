@@ -5,7 +5,7 @@ import Shadow from '../../assets/shadow.png';
 
 function Hero() {
     return (
-        <div className="flex items-center justify-center">
+        <div className="flex items-center justify-center" id='hero'>
             <img src={HeroImage} className='object-cover w-full h-full' alt="hero-bg" />
             <img src={Shadow} alt="shadow" className=' absolute top-3 animate-pulse' />
             <div className="absolute top-0 left-0 right-0 bottom-0 flex items-center justify-center text-white flex-col">
