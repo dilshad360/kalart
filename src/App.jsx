@@ -1,9 +1,7 @@
-
-
 import Hero from './components/Hero'
 import NavBar from './components/NavBar'
 
-function App() {
+function Home() {
   
 
   return (
@@ -18,4 +16,4 @@ function App() {
   )
 }
 
-export default App
+export default Home
