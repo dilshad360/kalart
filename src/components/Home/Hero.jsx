@@ -1,6 +1,6 @@
-import HeroImage from '../assets/hero.png';
-import Logo2 from '../assets/logo2.svg';
-import Shadow from '../assets/shadow.png';
+import HeroImage from '../../assets/hero.png';
+import Logo2 from '../../assets/logo2.svg';
+import Shadow from '../../assets/shadow.png';
 
 
 function Hero() {
