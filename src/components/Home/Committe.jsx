@@ -67,7 +67,7 @@ function Committe() {
 
           </section>
         </motion.div>
-        <section className='flex flex-col gap-2'>
+        <section className='flex flex-col gap-2 items-center'>
 
           <div>
             <h1 className='font-bold text-red-700 text-2xl bg-green-400 text-center'>On stage </h1>
@@ -125,7 +125,7 @@ function Committe() {
           </motion.div>
         </section>
 
-        <section className='flex flex-col gap-2'>
+        <section className='flex flex-col gap-2 items-center'>
           <div>
             <h1 className='font-bold text-red-700 text-2xl bg-green-400 text-center'>On stage </h1>
           </div>
