@@ -19,9 +19,12 @@ function NavBar() {
     };
   }, []);
 
-  const navClass = isScrolled ? 'bg-black/40' : '';
+  const navClass = isScrolled
+  ? 'bg-gradient-to-b from-black to-transparent'
+  : '';
+
   return (
-    <div className={`sticky top-0 w-full text-white px-10 flex items-center justify-between z-50 cursor-pointer  ${navClass}`}>
+    <div className={`fixed top-0 w-full text-white px-10 flex items-center justify-between z-50 cursor-pointer  ${navClass}`}>
       <img src={Logo} className='w-36' alt="logo" />
       <div className='flex gap-10 text-xl'>
         <Link
