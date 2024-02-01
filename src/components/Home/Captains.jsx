@@ -6,7 +6,7 @@ import Arts from '../../assets/Avatars/Captains/Arts/img.png'
 import { motion } from "framer-motion"
 function Captains() {
     return (
-        <div id='captains' className='mt-40'>
+        <div id='captains' className='mt-40 mb-16'>
             <h1 className='text-center text-4xl font-bold text-red-950 mb-12'>Captains</h1>
             <div className='flex flex-col gap-16 p-4 mx-auto items-center'>
                 <motion.div
