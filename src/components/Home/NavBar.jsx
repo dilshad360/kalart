@@ -6,22 +6,22 @@ import { useEffect, useState } from 'react';
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  const handleScroll = () => {
-    setIsScrolled(window.scrollY > 100);
-  };
+  // const handleScroll = () => {
+  //   setIsScrolled(window.scrollY > 100);
+  // };
 
-  useEffect(() => {
-    window.addEventListener('scroll', handleScroll);
+  // useEffect(() => {
+  //   window.addEventListener('scroll', handleScroll);
 
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+  //   // Cleanup the event listener on component unmount
+  //   return () => {
+  //     window.removeEventListener('scroll', handleScroll);
+  //   };
+  // }, []);
 
   const navClass = isScrolled ? 'bg-black/40' : '';
   return (
-    <div className={`sticky top-0 w-full text-white px-10 flex items-center justify-between z-50 cursor-pointer  ${navClass}`}>
+    <div className={`absolute w-full text-white px-10 flex items-center justify-between z-50 cursor-pointer  ${navClass}`}>
       <img src={Logo} className='w-36' alt="logo" />
       <div className='flex gap-10 text-xl'>
         <Link

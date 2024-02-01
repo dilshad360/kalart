@@ -36,9 +36,10 @@ function Home() {
   const navClass = isScrolled ? 'opacity-100 delay-100' : 'opacity-0';
 
   return (
-    <div>
+    <div className='mx-auto overflow-hidden'>
       <NavBar />
       <Hero />
+      <div className='container mx-auto'>
       <div id='scoreBoard'>
       <ScoreBoard />
       <Individual />
@@ -46,9 +47,10 @@ function Home() {
       </div>
       <Committe />
       <Captains />
+      </div>
       <Footer />
       <div className={`fixed bottom-4 right-4  ${navClass}`}>
-        <button onClick={() => animateScroll.scrollToTop(options)} className='bg-slate-300 p-4 rounded-lg'>Top</button>
+        <button onClick={() => animateScroll.scrollToTop(options)} className='bg-slate-300 p-2 rounded-lg'>Top</button>
       </div>
     </div>
   )
