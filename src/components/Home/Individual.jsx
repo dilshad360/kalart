@@ -1,19 +1,48 @@
-import React from 'react'
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import { fetchRecords } from "../../utils/airtableService";
+
 function Individual() {
+
+  const [individualData, setIndividualData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const tableName = 'Participants'; 
+        const filterBy = '';
+        const sortField = 'Points'; 
+        const sortDirection = 'desc';
+        const maxRecords = 10;
+        const Records = await fetchRecords(tableName, filterBy, sortField, sortDirection, maxRecords);
+        console.log(Records)
+        setIndividualData(Records)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+
   return (
     <div className='my-20'>
 
-    <motion.div
-    initial={{ opacity: 0, x: -500 }}
-    whileInView={{ opacity: 1, x: 0, transition: { duration: 1 , delay: 0.2 } }}
-    viewport={{ once: true }}
-  >
-    <div className='h-60 w-full ' id='individual'>
-
+    <div className=' w-full ' id='individual'>
       <h1 className=' font-bold text-2xl text-center'>Individual</h1>
+      { individualData.length ? (
+          <>
+            {individualData.map((item, index)=>(
+              <div key={index}>
+                  <h6>{item.fields.Name}</h6>
+                  <p>{item.fields.Department}</p>
+                  <p>{item.fields.Points}</p>
+              </div>
+            ))}
+          </>
+          ) : (<span>Loading...</span>)
+          }
     </div>
-    </motion.div>
     </div>
 
   )

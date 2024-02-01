@@ -6,18 +6,18 @@ import { useEffect, useState } from 'react';
 function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // const handleScroll = () => {
-  //   setIsScrolled(window.scrollY > 100);
-  // };
+  const handleScroll = () => {
+    setIsScrolled(window.scrollY > 100);
+  };
 
-  // useEffect(() => {
-  //   window.addEventListener('scroll', handleScroll);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
 
-  //   // Cleanup the event listener on component unmount
-  //   return () => {
-  //     window.removeEventListener('scroll', handleScroll);
-  //   };
-  // }, []);
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   const navClass = isScrolled
   ? 'bg-gradient-to-b from-black to-transparent'

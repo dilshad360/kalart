@@ -1,24 +1,50 @@
-import React from 'react'
-import { motion } from "framer-motion"
+import { useEffect, useState } from "react";
+import { fetchRecords } from "../../utils/airtableService";
+
+
 function ScoreBoard() {
+
+  const [scoreBoardData, setScoreBoardData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const tableName = 'Group'; 
+        const filterBy = '';
+        const sortField = 'Total'; 
+        const sortDirection = 'desc';
+        const Records = await fetchRecords(tableName, filterBy, sortField, sortDirection);
+        setScoreBoardData(Records)
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  }, []);
+
+
   return (
     <div className='my-20'>
-
-      <motion.div
-        initial={{ opacity: 0, x: -500 }}
-        whileInView={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.2 } }}
-        viewport={{ once: true }}
-      >
-
-        <div className='h-60 w-full'>
-
+        <div className='w-full'>
           <h1 className=' font-bold text-2xl text-center'>ScoreBoard</h1>
+          { scoreBoardData.length ? (
+          <>
+            {scoreBoardData.map((item, index)=>(
+              <div key={index}>
+                  <h6>{item.fields.Name}</h6>
+                  <span>{item.fields.Total}</span>
+              </div>
+            ))}
+          </>
+          ) : (<span>Loading...</span>)
+          }
         </div>
-      </motion.div>
     </div>
 
 
   )
 }
+
 
 export default ScoreBoard
