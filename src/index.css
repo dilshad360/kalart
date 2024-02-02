@@ -273,3 +273,24 @@ body {
   }
 
 }
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 12px; /* Set the width of the scrollbar */
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background-color: #7e4646; /* Color of the scrollbar track */
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: #531c1c; /* Color of the scrollbar handle */
+  border-radius: 0px; /* Border radius of the scrollbar handle */
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #220d0d; /* Change color on hover */
+}

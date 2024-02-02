@@ -12,12 +12,10 @@
 .open{
     opacity: 1;
     display: block;
-    background-color: red;
 }
 .closed{
     opacity: 0;
     display: none;
-    background-color: green;
 }
 .navActive2{
     background-color: rgba(233, 233, 233, 0.664);

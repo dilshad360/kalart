@@ -53,7 +53,7 @@ function Home() {
 
 
       {/* back to top  */}
-      <div className={`fixed bottom-4 right-4  ${navClass}`}>
+      <div className={`fixed bottom-6 right-6  ${navClass}`}>
         <button onClick={() => animateScroll.scrollToTop(options)} className='bg-slate-300 p-3 rounded-full'>
           {/*change log now its just for fun */}
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-through-heart" viewBox="0 0 16 16">
