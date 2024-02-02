@@ -29,7 +29,7 @@ function Individual() {
 
 
   return (
-    <div className='my-20 mb-60 '>
+    <div className='my-20 mb-40 '>
 
       <div className=' w-full ' id='individual'>
         <h1 className=' font-bold text-3xl text-center'>Individual Results</h1>

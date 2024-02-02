@@ -14,7 +14,7 @@ import { motion } from "framer-motion"
 
 function Committe() {
   return (
-    <div className='w-full mt-40 mx-auto' id='committee' >
+    <div className='w-full mx-auto' id='committee' >
       <h1 className='font-bold text-3xl text-center mb-10 text-black'>Committee</h1>
       <main className='flex flex-col gap-16 p-4 mx-auto items-center '>
         {/* Main Committe */}
