@@ -13,7 +13,6 @@
     text-align: center;
     color: white;
     justify-content: center;
-    margin-top: -200px;
 }
 
 
@@ -58,7 +57,6 @@
 /* Media queries for responsiveness */
 @media (max-width: 450px) {
     .absolute-container {
-        margin-top: -100px;
         gap: 15px;
     }
   
@@ -96,7 +94,6 @@
 @media (min-width: 451px) and (max-width: 600px) {
 
     .absolute-container {
-        margin-top: -180px;
         gap: 15px;
     }
   
@@ -135,7 +132,6 @@
 
    
     .absolute-container {
-        margin-top: -200px;
         gap: 25px;
     }
   
@@ -174,7 +170,6 @@
 
    
     .absolute-container {
-        margin-top: -220px;
         gap: 35px;
     }
   
@@ -212,7 +207,6 @@
 @media (min-width: 1025px) {
  
     .absolute-container {
-        margin-top: -330px;
         gap: 55px;
     }
   
