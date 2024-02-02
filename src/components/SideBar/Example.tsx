@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useRef } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, sync, useCycle } from "framer-motion";
 import { useDimensions } from "./use-dimensions";
 import { MenuToggle } from "./MenuToggle";
@@ -29,9 +29,21 @@ export const Example = () => {
   const [isOpen, toggleOpen] = useCycle(false, true);
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
+  const [closedClass, setClosedClass] = useState('closed');
   const closeSidebar = () => {
     toggleOpen();
   };
+  useEffect(() => {
+    if (isOpen) {
+      console.log("Sidebar is open");
+      setClosedClass('open');
+    } else {
+      const timeoutId = setTimeout(() => {
+        setClosedClass('closed');
+      }, 1000);
+      return () => clearTimeout(timeoutId);
+    }
+  }, [isOpen]);
   return (
     <motion.nav
       initial={false}
@@ -40,8 +52,11 @@ export const Example = () => {
       ref={containerRef}
     >
       <motion.div className="background backdrop-blur-md" variants={sidebar} />
-      <Navigation closeSidebar={closeSidebar}/>
-      <MenuToggle toggle={() => toggleOpen()} 
+      <div className={closedClass}>
+        <Navigation closeSidebar={closeSidebar} />
+
+      </div>
+      <MenuToggle toggle={() => toggleOpen()}
       />
     </motion.nav>
   );

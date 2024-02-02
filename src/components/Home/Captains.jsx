@@ -4,6 +4,7 @@ import Bvoc from '../../assets/Avatars/Captains/Bvoc/img.png'
 import Commerce from '../../assets/Avatars/Captains/Commerce/img.png'
 import Arts from '../../assets/Avatars/Captains/Arts/img.png'
 import { motion } from "framer-motion"
+import '../../styles/Responsive.css'
 function Captains() {
     return (
         <div id='captains' className='mt-40 mb-16'>
@@ -21,13 +22,16 @@ function Captains() {
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
-                    <img src={Bsc} alt="Bsc" className='h-[180px]' />
+                    <div>
+                    <img src={Bsc} alt="Bsc" className='responsive-image-captains' />
                     <div className='flex justify-around font-semibold text-blue-950 capitalize'>
                         <p>Sabik</p>
                         <p>Ansaba</p>
                         <p>Nourin</p>
                         <p className='-mr-6'>Hamza Nizam</p>
                     </div>
+                    </div>
+                    
                 </motion.div>
                 <motion.div
                     initial={{ opacity: 0, x: -500 }}
@@ -41,7 +45,7 @@ function Captains() {
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
-                    <img src={Bvoc} alt="Bvoc" className='h-[180px]' />
+                    <img src={Bvoc} alt="Bvoc" className='responsive-image-captains' />
                     <div className='flex justify-around font-semibold text-blue-950 capitalize'>
                         <p>Adhila</p>
                         <p>Riya Hanna</p>
@@ -61,7 +65,7 @@ function Captains() {
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
-                    <img src={Arts} alt="Arts" className='h-[180px]' />
+                    <img src={Arts} alt="Arts" className='responsive-image-captains' />
                     <div className='flex justify-around font-semibold text-blue-950 capitalize'>
                         <p>Arsalan KT</p>
                         <p>gopika p</p>
@@ -82,7 +86,7 @@ function Captains() {
                         {/* <span className='h-4 w-4 bg-red-900 rotate-45 absolute -right-2'></span> */}
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
-                    <img src={Commerce} alt="Commerce" className='h-[180px]' />
+                    <img src={Commerce} alt="Commerce" className='responsive-image-captains' />
                     <div className='flex justify-around font-semibold text-blue-950 capitalize'>
                         <p>Mirshad</p>
                         <p>Juniad</p>

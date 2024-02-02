@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { Link } from 'react-scroll';
 import { NavLink } from "react-router-dom";
 
+
 const variants = {
   open: {
     y: 0,
@@ -25,7 +26,7 @@ export const MenuItem = ({ item, closeSidebarOK }) => {
   const style = { border: `2px solid ${color}` };
   const handleClick = () => {
 
-    closeSidebarOK();  // Add parentheses to invoke the function
+    closeSidebarOK();
     console.log('clicked');
   };
 
@@ -40,11 +41,11 @@ export const MenuItem = ({ item, closeSidebarOK }) => {
         {link === '/results' ? <NavLink to={link} onClick={handleClick} style={style} className='navlink w-40 flex items-center justify-center rounded-xl py-1  text-orange-900 font-semibold'>{name}</NavLink> :
           <Link
             activeClass="navActive2"
-            className='navlink w-40 flex items-center justify-center rounded-xl py-1 text-orange-900 font-semibold'
+            className='navlink w-40 flex items-center justify-center rounded-xl py-1 text-orange-900 font-semibold z-0'
             to={link}
             spy={true}
             smooth={true}
-            offset={-20}
+            offset={-100}
             delay={800}
             duration={800}
             style={style}
