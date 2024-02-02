@@ -20,6 +20,7 @@ function ScoreBoard() {
         const sortField = 'Total';
         const sortDirection = 'desc';
         const Records = await fetchRecords(tableName, filterBy, sortField, sortDirection);
+        console.log(Records);
         setScoreBoardData(Records)
       } catch (error) {
         console.error(error);
@@ -49,7 +50,7 @@ function ScoreBoard() {
                     <img src={start2} className="h-14" />
                     <img src={start5} className="h-14" />
                   </div>
-                  <div className="flex items-center justify-around ">
+                  <div className="flex items-center justify-around mx-6">
                     <img src={start3} className="h-10" />
                     <img src={start4} className="h-10" />
                   </div>

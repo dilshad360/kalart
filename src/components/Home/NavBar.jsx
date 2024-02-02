@@ -1,6 +1,6 @@
 import { Link } from 'react-scroll';
 import { NavLink } from 'react-router-dom';
-import Logo from '../../assets/logo.svg';
+import Logo from '../../assets/logo.png';
 import { useEffect, useState } from 'react';
 
 function NavBar() {
@@ -24,8 +24,8 @@ function NavBar() {
   : '';
 
   return (
-    <div className={`fixed top-0 w-full text-white px-10 flex items-center justify-between z-50 cursor-pointer  ${navClass}`}>
-      <img src={Logo} className='w-36' alt="logo" />
+    <div className={`fixed top-0 w-full text-white p-14 flex items-center justify-between z-50 cursor-pointer h-10  ${navClass}`}>
+      <img src={Logo} className='w-24' alt="logo" />
       <div className='flex gap-10 text-xl'>
         <Link
           activeClass="navActive"

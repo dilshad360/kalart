@@ -1,35 +1,84 @@
-import React from 'react'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faInstagram, faFacebookF, faXTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faCoffee, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import EmeaLogo from '../../assets/EMEAlogo.png';
+import Union40 from '../../assets/unionlogo.png';
+import Logo from '../../assets/logo.png';
+
 
 function Footer() {
   return (
-    <div>
-      <footer className='
-              h-fit
-              w-full 
-              font-bold 
-              text-2xl 
-              text-center
-            bg-red-950
-            text-white 
-              p-8
-              rounded-t-2xl
-              flex 
-              justify-between
-                    '>
+    <div >
+      <footer className='h-fit w-full  text-2xl text-center bg-red-950 text-white p-8 rounded-t-2xl flex flex-col justify-between pb-3'>
+        <div className='flex justify-between flex-1'>
 
-        {/* left section */}
-        <div className='h-24'>
-          Logo
+          {/* left section */}
+          <div className=' flex flex-col justify-start gap-4'>
+            <div>
+              <img src={Logo} alt='Union40 Logo' />
+            </div>
+            <div className='flex flex-col leading-5'>
+              <div>
+                <p className='uppercase text-[18px] font-bold'>
+                  40th Emea college students union
+                </p>
+              </div>
+              <div className='flex gap-1 items-center '>
+                <FontAwesomeIcon icon={faXTwitter} className='text-[16px]' />
+                <FontAwesomeIcon icon={faFacebookF} className='text-[16px]' />
+                <FontAwesomeIcon icon={faInstagram} className='text-[16px]' />
+
+                <p className='text-[16px]'>40th_studentsunion_emea</p>
+              </div>
+
+            </div>
+            <div className='bg-stone-300 p-2 rounded-lg pb-2 flex flex-col gap-1'>
+
+              <textarea name="" id="" cols="30" rows="2" placeholder='Type Here' className='text-sm p-3 rounded-lg bg-white  outline-red-950 text-blue-950' />
+
+              <div className='flex justify-end '>
+                <button className='bg-red-950 py-1 px-4 rounded-lg text-sm'>
+                  Submit
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+          {/* right section */}
+          <div className=' flex flex-col justify-end gap-2'>
+            <div className='flex gap-4 justify-end'>
+              <img src={Union40} alt='Union40 Logo' className='h-20' />
+              <img src={EmeaLogo} alt='EMEA Logo' />
+
+            </div>
+            <div className='flex flex-col  items-end text-[18px] font-bold '>
+              <p>EMEA College of Arts and Science-Kondotty</p>
+              <p>Re-accredited with’A’ Grade by NAAC</p>
+            </div>
+            <div className='flex flex-col items-end text-stone-400 text-[15px] leading-5'>
+              <p>Kumminiparamaba PO, Kondotty, Malappuram Dt.</p>
+              <p>Kerala - India   PIN :673638</p>
+            </div>
+            <div className='flex flex-col items-end text-stone-400 text-[16px] leading-5'>
+              <p>0483 271 2030 <FontAwesomeIcon icon={faPhone} /></p>
+              <p>mail@emeacollege.ac.in<FontAwesomeIcon icon={faEnvelope} /></p>
+            </div>
+
+
+
+          </div>
         </div>
-        {/* right section */}
-        <div className='h-24'>
-          Content
+
+        <div className='text-stone-400 text-[16px] mt-4 pt-2 border-t border-t-stone-500'>
+          Designed by Dilshad, Saleel, Shamil &nbsp;By us a <FontAwesomeIcon icon={faCoffee} />
+
         </div>
-        
+
       </footer>
-
     </div>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
