@@ -51,7 +51,7 @@ function Results() {
 
       {/* Main Content */}
       <div className="relative z-40 flex flex-col items-center justify-center px-10 py-10">
-        <NavLink to="/" className="text-black font-semibold text-lg absolute top-6 left-10 z-10">
+        <NavLink to="/" className="text-black font-semibold text-lg absolute top-6 left-10 z-10 link-custom">
           <FontAwesomeIcon icon={faAngleLeft} /> &nbsp;Home
 
         </NavLink>

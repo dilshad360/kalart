@@ -31,6 +31,9 @@ a:hover {
 body {
   margin: 0;
   opacity: 0;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  position: relative;
   animation: fadeIn 1s ease-in-out forwards;
 }
 
@@ -56,41 +59,11 @@ body {
   text-decoration: none !important;
 }
 
-.navLogo:hover {
+.navLogo:hover,
+.link-custom:hover {
   border-bottom: none !important;
 }
 
-.responsive-content-img {
-  width: 300px;
-}
-
-.responsive-content-img-card {
-  margin-left: -70px;
-}
-
-.responsive-content-text>p {
-  text-align: left;
-}
-
-@media (max-width: 950px) {
-  .responsive-custom-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .responsive-content-img {
-    width: 380px;
-  }
-
-  .responsive-content-img-card {
-    margin: 0px auto;
-  }
-
-  .responsive-content-text>p {
-    text-align: center;
-  }
-
-}
 
 
 

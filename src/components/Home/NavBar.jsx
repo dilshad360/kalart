@@ -39,7 +39,7 @@ function NavBar() {
           smooth={true}
           offset={0}
           duration={500} >
-          <img src={Logo} className='' alt="logo" />
+          <img src={Logo} className='nav-logo' alt="logo" />
 
         </Link>
       </div>

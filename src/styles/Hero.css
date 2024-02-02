@@ -240,3 +240,38 @@
         font-size: 30px;
     }
 }
+
+
+
+
+.responsive-content-img {
+    width: 360px;
+  }
+  
+  .responsive-content-img-card {
+    margin-left: -90px !important;
+  }
+  
+  .responsive-content-text>p {
+    text-align: left;
+  }
+  
+  @media (max-width: 950px) {
+    .responsive-custom-content {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .responsive-content-img {
+      width: 380px;
+    }
+  
+    .responsive-content-img-card {
+      margin: 0px auto !important;
+    }
+  
+    .responsive-content-text>p {
+      text-align: center;
+    }
+  
+  }

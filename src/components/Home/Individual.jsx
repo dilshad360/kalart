@@ -35,13 +35,13 @@ function Individual() {
         <h1 className=' font-bold text-3xl text-center'>Individual Results</h1>
         {individualData.length ? (
 
-          <div className=" p-2 flex flex-col gap-6 max-w-[600px] mx-auto mt-16">
+          <div className=" p-2 px-4 flex flex-col gap-6 max-w-[600px] mx-auto mt-16">
             <AnimatePresence>
 
               {individualData.map((item, index) => (
 
                 <motion.div
-                  initial={{ opacity: 0, scale: 0, x: -300 }}
+                  initial={{ opacity: 0, scale: 0, x: -150 }}
                   whileInView={{ opacity: 1, scale: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
