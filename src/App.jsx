@@ -49,6 +49,10 @@ function Home() {
         <Captains />
       </div>
       <Footer />
+
+
+
+      {/* back to top  */}
       <div className={`fixed bottom-4 right-4  ${navClass}`}>
         <button onClick={() => animateScroll.scrollToTop(options)} className='bg-slate-300 p-3 rounded-full'>
           {/*change log now its just for fun */}
