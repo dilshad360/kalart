@@ -20,41 +20,51 @@ function NavBar() {
   }, []);
 
   const navClass = isScrolled
-  ? 'bg-gradient-to-b from-black to-transparent'
-  : '';
+    ? 'bg-gradient-to-b from-black to-transparent'
+    : '';
 
   return (
-    <div className={`fixed top-0 w-full text-white p-14 flex items-center justify-between z-50 cursor-pointer h-10  ${navClass}`}>
-      <img src={Logo} className='w-24' alt="logo" />
+    <div className={`fixed top-0 w-full text-white p-12 flex items-center justify-between z-50 cursor-pointer h-6 overflow-auto ${navClass}`}>
+      <Link
+        
+        className='navLogo'
+        to="hero"
+        spy={true}
+        smooth={true}
+        offset={0}
+        duration={500} >
+        <img src={Logo} className='w-24' alt="logo" />
+
+      </Link>
       <div className='flex gap-10 text-xl'>
         <Link
           activeClass="navActive"
-          className=''
+          className='navlink'
           to="hero"
           spy={true}
           smooth={true}
           offset={0}
           duration={500} >Home</Link>
         <Link activeClass="navActive"
-          className='no-underline'
+          className='navlink'
           to="scoreBoard"
           spy={true}
           smooth={true}
           offset={-100}
           duration={500} >Score Board</Link>
-        <NavLink 
-          className='no-underline'
+        <NavLink
+          className='navlink'
           to="/results"
-          >Result</NavLink>
+        >Result</NavLink>
         <Link activeClass="navActive"
-          className='no-underline'
+          className='navlink'
           to="committee"
           spy={true}
           smooth={true}
           offset={-100}
           duration={500} >Committee</Link>
         <Link activeClass="navActive"
-          className='no-underline'
+          className='navlink'
           to="captains"
           spy={true}
           smooth={true}

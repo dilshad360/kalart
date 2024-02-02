@@ -38,11 +38,19 @@ body {
     opacity: 1;
   }
 }
-
+.navlink{
+text-decoration: none;
+}
 .navActive {
-  border-bottom: 3px solid white;
+  border-bottom: 3px solid rgba(212, 212, 212, 0.486);
 }
 
 .background-custom-color{
   background-color: #fff0e9;
+}
+.navLogo{
+  text-decoration: none !important;
+}
+.navLogo:hover{
+  border-bottom: none !important;
 }
