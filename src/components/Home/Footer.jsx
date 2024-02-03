@@ -33,7 +33,7 @@ function Footer() {
               </div>
 
             </div>
-            <div className='bg-stone-300 p-2 rounded-lg pb-2 flex flex-col gap-1'>
+            {/* <div className='bg-stone-300 p-2 rounded-lg pb-2 flex flex-col gap-1'>
 
               <textarea name="" id="" cols="30" rows="2" placeholder='Type Here' className='text-sm p-3 rounded-lg bg-white  outline-red-950 text-blue-950' />
 
@@ -43,7 +43,7 @@ function Footer() {
                 </button>
               </div>
 
-            </div>
+            </div> */}
 
           </div>
           {/* right section */}
@@ -57,43 +57,43 @@ function Footer() {
               <p>EMEA College of Arts and Science-Kondotty</p>
               <p>Re-accredited with’A’ Grade by NAAC</p>
             </div>
-            <div className='flex flex-col items-end text-stone-400 text-[15px] leading-5  responsive-footer-child'>
+            {/* <div className='flex flex-col items-end text-stone-400 text-[15px] leading-5  responsive-footer-child'>
               <p>Kumminiparamaba PO, Kondotty, Malappuram Dt.</p>
               <p>Kerala - India   PIN :673638</p>
             </div>
             <div className='flex flex-col items-end text-stone-400 text-[16px] leading-5 responsive-footer-child'>
               <p>0483 271 2030 <FontAwesomeIcon icon={faPhone} /></p>
               <p>mail@emeacollege.ac.in<FontAwesomeIcon icon={faEnvelope} /></p>
-            </div>
+            </div> */}
 
 
 
           </div>
         </div>
 
-        <div className='text-stone-400 text-[16px] mt-4 pt-2 border-t border-t-stone-500 flex items-center justify-center gap-3'>
+        <div className='text-stone-400 text-[16px] mt-4 pt-2 border-t border-t-stone-500 flex items-center justify-center gap-1'>
           Designed by
-          <NavLink to='https://www.linkedin.com/in/dilshad-ali-3a3b3b1b3/' target="_blank" className='navlink-designer'>
-            <p className='designer-1'>
-              Dilshad
+          <NavLink to='https://www.linkedin.com/in/dilshad360/' target="_blank" className='navlink-designer'>
+            <p className='designer-1 text-stone-400'>
+              Dilshad,
 
             </p>
           </NavLink>
-          <NavLink to='https://www.linkedin.com/in/saleel-ali-3a3b3b1b3/' target="_blank" className='navlink-designer'>
-            <p className="designer-2">
+          <NavLink to='https://www.linkedin.com/in/muhammed-saleel-cp-84064524b' target="_blank" className='navlink-designer'>
+            <p className="designer-2 text-stone-400">
 
-              Saleel
+              Saleel,
             </p>
           </NavLink>
-          <NavLink to='https://www.linkedin.com/in/shamil-ali-3a3b3b1b3/' target="_blank" className='navlink-designer'>
-            <p className="designer-3">
+          <NavLink to='https://www.linkedin.com/in/muhammed-shamil-65878227a/' target="_blank" className='navlink-designer'>
+            <p className="designer-3 text-stone-400">
               Shamil
             </p>
           </NavLink>
-          &nbsp;Buy us a <FontAwesomeIcon icon={faCoffee} />
+          {/* &nbsp;Buy us a <FontAwesomeIcon icon={faCoffee} /> */}
         </div>
         <marquee className="mt-2">
-          <p className='text-stone-400 text-[16px]'>© 2021 EMEA College of Arts and Science-Kondotty Connect. All Rights Reserved</p>
+          <p className='text-stone-400 text-[16px]'>© 2024 EMEA College of Arts and Science-Kondotty Union. All Rights Reserved</p>
         </marquee>
       </footer>
     </div>

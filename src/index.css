@@ -103,37 +103,42 @@ body {
 
 .designer-1 {
   scale: 1;
-  animation: designer-1 5s ease-in-out infinite;
+  /* animation: designer-1 5s ease-in-out infinite; */
   transition: all .5s ease-in-out;
 
 }
 
 .designer-1:hover {
-  text-shadow: 2px 2px #FF0000;
+  color: #fff0e9;
+
+  text-shadow: 2px 2px #727272;
   animation-play-state: paused;
 }
 
 .designer-2 {
   scale: 1;
-  animation: designer-2 5s ease-in-out infinite;
+  /* animation: designer-2 5s ease-in-out infinite; */
   transition: all .5s ease-in-out;
 
 }
 
 .designer-2:hover {
-  text-shadow: 2px 2px #FF0000;
+  color: #fff0e9;
+
+  text-shadow: 2px 2px #757575;
   animation-play-state: paused;
 }
 
 .designer-3 {
   scale: 1;
-  animation: designer-3 5s ease-in-out infinite;
+  /* animation: designer-3 5s ease-in-out infinite; */
   transition: all .5s ease-in-out;
 
 }
 
 .designer-3:hover {
-  text-shadow: 2px 2px #FF0000;
+  color: #fff0e9;
+  text-shadow: 2px 2px #7e7e7e;
   animation-play-state: paused;
 }
 

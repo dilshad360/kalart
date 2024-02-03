@@ -7,7 +7,7 @@ import { Navigation } from "./Navigation";
 
 const sidebar = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at 40px 40px)`,
+    clipPath: `circle(${height * 2 + 200}px at 50px 45px)`,
     transition: {
       type: "spring",
       stiffness: 20,
@@ -15,7 +15,7 @@ const sidebar = {
     }
   }),
   closed: {
-    clipPath: "circle(25px at 40px 40px)",
+    clipPath: "circle(25px at 50px 45px)",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -50,11 +50,11 @@ export const Example = () => {
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
+      className={isOpen ? "sideBarOpen" : "sideBarClosed"}
     >
-      <motion.div className="background backdrop-blur-md" variants={sidebar} />
+      <motion.div className="background backdrop-blur-sm" variants={sidebar} />
       <div className={closedClass}>
         <Navigation closeSidebar={closeSidebar} />
-
       </div>
       <MenuToggle toggle={() => toggleOpen()}
       />

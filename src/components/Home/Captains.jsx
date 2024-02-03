@@ -11,9 +11,9 @@ function Captains() {
    
       
     return (
-        <div id='captains' className='mt-40 mb-16'>
+        <div id='captains' className='mt-40 mb-16 '>
             <h1 className='text-center text-4xl font-bold text-red-950 mb-12'>Captains</h1>
-            <div className='flex flex-col gap-16 p-4 mx-auto items-center'>
+            <div className='flex flex-col gap-16 p-4 mx-auto items-center max-w-[900px]'>
                 <motion.div
                     initial={{ opacity: 0, x: -300 }}
                     whileInView={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.2 } }}
@@ -28,7 +28,7 @@ function Captains() {
                     </div>
                     <div>
                     <img src={Bsc} alt="Bsc" className='responsive-image-captains' />
-                    <div className='flex justify-around font-semibold text-blue-950 capitalize'>
+                    <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                         <p>Sabik</p>
                         <p>Ansaba</p>
                         <p>Nourin</p>
@@ -50,7 +50,7 @@ function Captains() {
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
                     <img src={Bvoc} alt="Bvoc" className='responsive-image-captains' />
-                    <div className='flex justify-around font-semibold text-blue-950 capitalize'>
+                    <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                         <p>Adhila</p>
                         <p>Riya Hanna</p>
                         <p>Riyas Ak</p>
@@ -70,7 +70,7 @@ function Captains() {
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
                     <img src={Arts} alt="Arts" className='responsive-image-captains' />
-                    <div className='flex justify-around font-semibold text-blue-950 capitalize'>
+                    <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                         <p>Arsalan KT</p>
                         <p>gopika p</p>
                         <p>Shafnas k</p>
@@ -91,7 +91,7 @@ function Captains() {
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
                     <img src={Commerce} alt="Commerce" className='responsive-image-captains' />
-                    <div className='flex justify-around font-semibold text-blue-950 capitalize'>
+                    <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                         <p>Mirshad</p>
                         <p>Juniad</p>
                         <p>Haneena</p>

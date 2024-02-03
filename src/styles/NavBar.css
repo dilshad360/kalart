@@ -9,6 +9,21 @@
     justify-content: center;
     align-items: center;
   } */
+.sideBarOpen {
+    width: 300px;
+    z-index: 999 !important;
+    height: 100vh;
+    transition: 0.5s;
+}
+
+.sideBarClosed {
+    width: 0;
+    height: 100vh;
+    z-index: 999 !important;
+    transition: 0.5s;
+
+}
+
 .open {
     opacity: 1;
     display: block;
@@ -37,7 +52,9 @@ nav {
     left: 0;
     bottom: 0;
     width: 300px;
-    background: #cac0c09a;
+    background: #cac0c0e8;
+    filter: blur(1px) !important;
+    /* backdrop-filter: blur(5px) !important; */
 }
 
 .button {
@@ -48,8 +65,8 @@ nav {
     -ms-user-select: none;
     cursor: pointer;
     position: absolute;
-    top: 18px;
-    left: 15px;
+    top: 22px;
+    left: 24px;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -127,8 +144,8 @@ li {
     }
 
     .button {
-        top: 22px;
-        left: 20px;
+        top: 26px;
+        left: 29px;
         width: 40px;
         height: 40px;
     }

@@ -22,7 +22,7 @@ function NavBar() {
   }, []);
 
   const navClass = isScrolled
-    ? 'bg-gradient-to-b from-black to-transparent'
+    ? 'bg-gradient-to-b from-black to-gray-100/20 backdrop-blur-sm '
     : '';
 
   return (

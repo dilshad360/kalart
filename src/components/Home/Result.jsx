@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom'
 import Carousal from '../Result/Carousal'
 function Result() {
   return (
-    <div className=' mb-36'>
+    <div className=' mb-36  max-w-[800px] mx-auto'>
 
       <motion.div
         initial={{ opacity: 0 }}

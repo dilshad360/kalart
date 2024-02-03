@@ -4,46 +4,38 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import ResultCard from '../../assets/resultCard.jpg';
 
 import '../../styles/Carousal.css';
 
 const Carousal = () => {
   const Data = [
     {
-      name: 'Nature 1',
+      name: 'Result 1',
       id: 1,
-      img: 'https://swiperjs.com/demos/images/nature-1.jpg',
+      img: ResultCard,
     },
     {
-      name: 'Nature 2',
+      name: 'Result 2',
       id: 2,
-      img: 'https://swiperjs.com/demos/images/nature-2.jpg',
+      img: ResultCard,
     },
     {
-      name: 'Nature 3',
+      name: 'Result 3',
       id: 3,
-      img: 'https://swiperjs.com/demos/images/nature-3.jpg',
+      img: ResultCard,
     },
     {
-      name: 'Nature 4',
+      name: 'Result 4',
       id: 4,
-      img: 'https://swiperjs.com/demos/images/nature-4.jpg',
+      img: ResultCard,
     },
     {
-      name: 'Nature 5',
+      name: 'Result 5',
       id: 5,
-      img: 'https://swiperjs.com/demos/images/nature-5.jpg',
+      img: ResultCard,
     },
-    {
-      name: 'Nature 6',
-      id: 6,
-      img: 'https://swiperjs.com/demos/images/nature-6.jpg',
-    },
-    {
-      name: 'Nature 7',
-      id: 7,
-      img: 'https://swiperjs.com/demos/images/nature-7.jpg',
-    },
+   
   ];
 
   return (
