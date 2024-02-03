@@ -64,7 +64,10 @@ function Individual() {
 
           </div>
         ) : (
-          <span className="font-semibold">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
+          <div className="mx-auto my-4 w-full  flex items-center justify-center">
+  <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
+          </div>
+        
         )
         }
       </div>

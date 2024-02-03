@@ -7,11 +7,13 @@ import start2 from '../../assets/star/filled/thinsmooth-2.svg';
 import start3 from '../../assets/star/filled/thinsmooth-3.svg';
 import start4 from '../../assets/star/filled/thinsmooth-4.svg';
 import start5 from '../../assets/star/filled/thinsmooth.svg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 function ScoreBoard() {
 
   const [scoreBoardData, setScoreBoardData] = useState([]);
-console.log(scoreBoardData);
+  console.log(scoreBoardData);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -60,7 +62,7 @@ console.log(scoreBoardData);
                   {/* custom css for Positons */}
                   <div className={`absolute text-9xl font-bold top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 card-child-${index + 1}`}>{index + 1}</div>
                   <div className="flex  items-center justify-center w-full h-full z-10 text-center flex-col">
-                    <h6 className={` text-3xl capitalize mt-20 font-bold card-team-${index + 1}`}> {item.fields.Name === 'BSC' ? 'SCIENCE' : item.fields.Name}</h6>
+                    <h6 className={` text-3xl uppercase mt-20 font-bold card-team-${index + 1}`}> {item.fields.Name === 'BSC' ? 'SCIENCE' : item.fields.Name}</h6>
 
                     <span className="mt-14 text-center text-2xl mx-auto font-bold">{item.fields.Total} <span className="font-semibold text-lg">pts</span></span>
                   </div>
@@ -69,7 +71,9 @@ console.log(scoreBoardData);
               </>
             ))}
           </div>
-        ) : (<span>Loading...</span>)
+        ) : (<div className="mx-auto my-4 w-full  flex items-center justify-center">
+          <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
+        </div>)
         }
       </div>
     </div>

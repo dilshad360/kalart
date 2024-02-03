@@ -105,7 +105,7 @@ function Results() {
               )}
             </div>
           ) : (
-            <span className="font-semibold">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
+            <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
           )}
         </div>
 
