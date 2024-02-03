@@ -144,7 +144,7 @@ function Results() {
             <div className="max-w-[450px]  mx-auto shadow-xl relative">
 
               <img src={offStagePoster} alt="offStagePoster" className="w-full h-auto" />
-<div className="absolute bg-red-100/20 h-full w-full top-0 left-0 right-0 bottom-0 flex flex-col">
+<div className="absolute  h-full w-full top-0 left-0 right-0 bottom-0 flex flex-col">
   <div className="basis-1/2">
 
   </div>

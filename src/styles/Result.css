@@ -9,8 +9,7 @@
 .respo-year {}
 
 @media (max-width:540px) {
-    .respo-badge {
-    }
+    .respo-badge {}
 
     .respo-badge img {
         width: 30px;
@@ -34,5 +33,39 @@
         display: flex !important;
         margin: 0px 12px !important;
         justify-content: flex-end !important;
+    }
+}
+
+@media (max-width:768px) {
+    .respo-badge-home {}
+
+    .respo-badge-home img {
+        width: 25px !important;
+    }
+
+    .respo-program-home {
+        position: absolute !important;
+        top: -8px !important;
+        font-size: 12px !important;
+    }
+
+    .respo-name-home {
+        font-size: 12px !important;
+    }
+
+    .respo-year-home {
+        font-size: 10px !important;
+
+    }
+
+    .respo-winners-home {
+        display: flex !important;
+        margin: 6px 12px !important;
+        margin-left: 38px !important;
+        justify-content: flex-end !important;
+    }
+
+    .respo-detials-home {
+        margin-top: 8px !important;
     }
 }
