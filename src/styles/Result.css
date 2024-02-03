@@ -1,0 +1,38 @@
+.respo-badge {}
+
+.respo-badge img {}
+
+.respo-program {}
+
+.respo-name {}
+
+.respo-year {}
+
+@media (max-width:540px) {
+    .respo-badge {
+    }
+
+    .respo-badge img {
+        width: 30px;
+    }
+
+    .respo-program {
+        margin-top: 5px !important;
+        font-size: 15px !important;
+    }
+
+    .respo-name {
+        font-size: 12px !important;
+    }
+
+    .respo-year {
+        font-size: 10px !important;
+
+    }
+
+    .respo-winners {
+        display: flex !important;
+        margin: 0px 12px !important;
+        justify-content: flex-end !important;
+    }
+}

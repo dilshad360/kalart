@@ -67,28 +67,7 @@ body {
 
 
 
-/* score card 2,2 1*4 pattern */
-.scoreCard--responsive {
-  width: 0px;
-}
 
-.responsive--scoreBoard {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-@media (min-width:900px)and (max-width: 1290px) {
-  .scoreCard--responsive {
-    width: 100%;
-  }
-}
-
-@media (max-width: 540px) {
-  .responsive--scoreBoard {
-    display: flex;
-    flex-direction: column;
-  }
-}
 
 
 /* designers animation */

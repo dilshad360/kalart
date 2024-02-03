@@ -17,7 +17,7 @@ function Individual() {
         const sortDirection = 'desc';
         const maxRecords = 10;
         const Records = await fetchRecords(tableName, filterBy, sortField, sortDirection, maxRecords);
-        console.log(Records)
+        // console.log(Records)
         setIndividualData(Records)
       } catch (error) {
         console.error(error);

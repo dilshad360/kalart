@@ -38,12 +38,12 @@ function Hero() {
             </div>
             <div className='-mt-16  h-fit w-full z-50 mx-auto md:px-14 px-10'>
                 <div className='bg-white h-full w-full pt-10 text-center relative flex  overflow-hidden rounded-b-lg  responsive-custom-content p-2'>
-                    <div className='mx-auto basis-1/2 responsive-content-img-card'>
+                    <div className='mx-auto responsive-content-img-card '>
 
                         <img src={ContentImage} alt="content" className=' responsive-content-img' />
                     </div>
 
-                    <div className='mt-10 p-4 basis-2/3 font-semibold text-center md:text-left flex flex-col gap-4 max-w-[600px] mx-auto responsive-content-text'>
+                    <div className='mt-10 p-4  font-semibold text-center md:text-left flex flex-col gap-4 max-w-[600px] mx-auto responsive-content-text basis-9/12'>
                         <p className=''>
                             Welcome to EMEA College of Arts & Science's vibrant world of creativity! Immerse yourself in the magic of <strong>
                                 "kALART,"

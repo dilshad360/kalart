@@ -6,9 +6,17 @@ import BgMain from "../assets/bg-kathakali.png";
 import bglogo from "../assets/bg-blurlogo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import offStagePoster from '../assets/Poster/offStage.jpg';
+// import onStagePoster from '../assets/Poster/onStage.jpg';
+import Firstbadge from '../assets/Poster/1st.png';
+import Secondbadge from '../assets/Poster/2nd.png';
+import Thirdbadge from '../assets/Poster/3rd.jpg';
+import "../styles/Result.css";
+
 function Results() {
   const [resultList, setResultList] = useState([]);
   const [search, setSearch] = useState("");
+  const [selectedResult, setSelectedResult] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -23,18 +31,39 @@ function Results() {
           sortField,
           sortDirection
         );
-        console.log(Records);
+        // console.log(Records);
         setResultList(Records);
       } catch (error) {
         console.error(error);
       }
     };
 
+    // const fetchResults = async () => {
+    //   try {
+    //     const tableName = "Results";
+    //     const filterBy = "";
+    //     const sortField = "Created";
+    //     const sortDirection = "desc";
+    //     const Results = await fetchRecords(
+    //       tableName,
+    //       filterBy,
+    //       sortField,
+    //       sortDirection
+    //     );
+    //     console.log(Results);
+    //   } catch (error) {
+    //     console.error(error);
+    //   }
+    // };
+    // fetchResults();
     fetchData();
   }, []);
 
+  const getResult = (item) => {
+    setSelectedResult(item.fields.Name);
+  };
   return (
-    <div className="relative h-screen overflow-hidden">
+    <div className="relative h-screen ">
 
       {/* images */}
       <div className="">
@@ -62,13 +91,13 @@ function Results() {
           <input
             type="text"
             placeholder="Search Program"
-            className="bg-[#FFEACC] w-full md:w-1/3 h-10 px-6 border-none rounded-lg focus:outline-none mb-6 min-w-[300px]"
+            className="bg-[#FFEACC] w-full md:w-1/3 h-12 px-6 border-none rounded-lg focus:outline-none mb-6 min-w-[300px] focus:shadow-lg transition duration-300 ease-in-out"
             onChange={(e) => {
               setSearch(e.target.value);
             }}
           />
           {resultList.length ? (
-            <div className="flex justify-center items-center gap-10 flex-wrap">
+            <div className="flex justify-center items-center gap-10 flex-wrap max-h-[410px] overflow-hidden  p-1">
               <AnimatePresence>
                 {resultList.filter((val) => {
                   if (search === "") {
@@ -85,10 +114,12 @@ function Results() {
                     transition={{ duration: 0.2, delay: index * 0.1 }}
                     animate={{ x: 0, opacity: 1, scale: 1 }}
                     exit={{ x: 300, opacity: 0, scale: 0 }}
-                    className="bg-white px-6 py-2 rounded-xl"
+
                     key={index}
                   >
-                    <p className="text-2xl font-medium">{item.fields.Name}</p>
+                    <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getResult(item)}>
+                      <p className="text-2xl font-medium ">{item.fields.Name}</p>
+                    </div>
                   </motion.div>
                 ))}
               </AnimatePresence>
@@ -108,7 +139,55 @@ function Results() {
             <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
           )}
         </div>
+        {selectedResult && (
+          <div className="mx-auto w-full my-20">
+            <div className="max-w-[450px]  mx-auto shadow-xl relative">
 
+              <img src={offStagePoster} alt="offStagePoster" className="w-full h-auto" />
+<div className="absolute bg-red-100/20 h-full w-full top-0 left-0 right-0 bottom-0 flex flex-col">
+  <div className="basis-1/2">
+
+  </div>
+<div className="relative flex flex-col basis-1/2 items-center -mt-10 justify-between">
+<div className="font-bold text-lg -mt-1 respo-program">
+                {selectedResult}
+              </div>
+              <div className="felx-1 mt-2 h-full min-w-[280px] p-3">
+                <div className="flex h-full w-full">
+                  {/* badge */}
+                  <div className="basis-3/12 h-full w-full respo-winners">
+                    <div className="flex flex-col gap-4 my-2 respo-badge">
+
+                      <img src={Firstbadge} alt="Firstbadge" className=" w-12 top-0 " />
+                      <img src={Secondbadge} alt="Secondbadge" className=" w-12 top-0" />
+                    </div>
+                  </div>
+                  {/* winners */}
+                  <div className="basis-9/12 h-full w-full">
+                    <div className="flex flex-col gap-4 my-4 ">
+                      <div>
+                        <p className="font-semibold respo-name">Muhammed Saleel</p>
+                        <p className="respo-year">Bsc (2nd Year)</p>
+                      </div>
+                      <div>
+                        <p className="font-semibold respo-name">Muhammed Saleel</p>
+                        <p className="respo-year">Bsc (2nd Year)</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+</div>
+</div>
+            
+
+              {/* <img src={Thirdbadge} alt="Thirdbadge" className=" absolute w-full h-auto" /> */}
+            </div>
+
+          </div>
+        )
+        }
 
       </div>
 

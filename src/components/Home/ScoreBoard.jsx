@@ -13,7 +13,6 @@ import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 function ScoreBoard() {
 
   const [scoreBoardData, setScoreBoardData] = useState([]);
-  console.log(scoreBoardData);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -22,7 +21,7 @@ function ScoreBoard() {
         const sortField = 'Total';
         const sortDirection = 'desc';
         const Records = await fetchRecords(tableName, filterBy, sortField, sortDirection);
-        console.log(Records);
+        // console.log(Records);
         setScoreBoardData(Records)
       } catch (error) {
         console.error(error);
@@ -41,6 +40,8 @@ function ScoreBoard() {
           <div className="flex justify-center items-center gap-4  flex-row responsive--scoreBoard"  >
             {scoreBoardData.map((item, index) => (
               <>
+              {/* by adding div and key={index} giving this for solve error but the responsive 2,2 and 1,1,1,1 and 4
+              pattern will fail  */}
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0 }}
