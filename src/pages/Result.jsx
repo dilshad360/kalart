@@ -133,7 +133,7 @@ function Results() {
             }}
           />
           {resultList.length ? (
-            <div className="flex justify-center items-center gap-10 flex-wrap max-h-[410px] overflow-hidden  p-1">
+            <div className="flex justify-center items-center gap-10 flex-wrap max-h-[410px] overflow-auto  p-1">
               <AnimatePresence>
                 {resultList.filter((val) => {
                   if (search === "") {
@@ -153,7 +153,7 @@ function Results() {
                     key={index}
                   >
                     <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
-                      <p className="text-2xl font-medium ">{item.fields.Name}</p>
+                      <p className="text-lg md:text-2xl font-medium ">{item.fields.Name}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -188,56 +188,66 @@ function Results() {
                 <div className="max-w-[450px]  mx-auto shadow-xl relative poster-card">
                   <img src={result[0].stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
 
-                  <div className=" top-0 left-0 right-0 bottom-0 absolute ">
-                    <div className="flex flex-col justify-between items-center h-full w-full p-4 pt-8 gap-2 overflow-auto">
-                      <div>
-                        <img src={Union} alt="Union" className="w-44 h-auto mx-auto" />
-                      </div>
-                      <div className="relative">
-                        <img src={Logo} alt="Logo" className="w-56 h-auto mx-auto" />
-                        <p className="uppercase absolute text-[12px] -bottom-1 right-12">Fine Arts 23-24</p>
-                      </div>
-                      <div>
-                        <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase text-[16px] flex items-center justify-center">
-                          Fine Arts {result[0].stage} Result
-                        </p>
-                      </div>
-                      <div>
-                        <p className="font-bold uppercase">
-                          {result[0].programName}
-                        </p>
-                      </div>
-                      <div className="flex flex-col bg-white/70 rounded-2xl  p-6 gap-2">
+                  <div className="top-0 left-0 right-0 bottom-0 absolute overflow-auto">
+                    <div className="flex flex-col gap-4 md:justify-between items-center h-full w-full p-2  ">
 
-                        {result[0].records.map((record, index) => (
-                          <div key={index} className="flex gap-8 items-center">
-                            <div>
-                              <img src={getBadgeImage(record.fields.Place)} alt={`Badge ${record.fields.Place}`} className="w-10 top-0" />
-                            </div>
+                      <div className="flex flex-col items-center justify-between  basis-4/12 p-3">
 
-                            <div>
-                              <p className="font-semibold max-text-[16px]">{record.fields.Name}</p>
-                              <p className="text-[13px] ml-2">{record.fields.Department}  ({record.fields.Year} year)</p>
-                            </div>
-                            <div>
-                              {/* white space */}
-                            </div>
-                          </div>
-
-                        ))}
                         <div>
-
+                          <img src={Union} alt="Union" className=" h-auto mx-auto respo-union pt-4" />
+                        </div>
+                        <div className="relative">
+                          <img src={Logo} alt="Logo" className=" h-auto mx-auto respo-logo" />
+                          <p className="uppercase absolute  respo-logo-child">Fine Arts 23-24</p>
                         </div>
 
                       </div>
-                      <div>
-                        <p className="italic bg-gradient-to-t from-orange-600 to-yellow-300 text-transparent bg-clip-text font-bold text-2xl">
+
+                      <div className="flex flex-col items-center justify-between gap-1  h-fit">
+
+                        <div>
+                          <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase  flex items-center justify-center text-center respo-stage">
+                            <span>
+                              Fine Arts {result[0].stage} Result
+                            </span>
+                          </p>
+                        </div>
+                        <div>
+                          <p className="font-bold uppercase  respo-program">
+                            {result[0].programName}
+                          </p>
+                        </div>
+                        <div className="flex flex-col bg-white/70 rounded-xl py-3 p-5 gap-2 respo-result-card">
+
+                          {result[0].records.map((record, index) => (
+                            <div key={index} className="flex gap-4 items-start">
+                              <div>
+                                <img src={getBadgeImage(record.fields.Place)} alt={`Badge ${record.fields.Place}`} className="top-0 respo-badge" />
+                              </div>
+
+                              <div className="mt-1">
+                                <p className="font-semibold  respo-winner">{record.fields.Name}</p>
+                                <p className=" ml-2 respo-winner-year">{record.fields.Department}  ({record.fields.Year} year)</p>
+                              </div>
+                              <div>
+                                {/* white space */}
+                              </div>
+                            </div>
+
+                          ))}
+                          <div>
+
+
+                          </div>
+
+                        </div>
+                        <p className="italic bg-gradient-to-t from-orange-600 to-yellow-300 text-transparent bg-clip-text font-bold  respo-congrats">
                           Congratulations
                         </p>
                       </div>
-
                     </div>
-
+                    <div>
+                    </div>
 
                   </div>
 
