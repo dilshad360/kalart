@@ -17,6 +17,7 @@ function Results() {
   const [resultList, setResultList] = useState([]);
   const [search, setSearch] = useState("");
   const [selectedResult, setSelectedResult] = useState(null);
+  const [result, setResult] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,30 +39,43 @@ function Results() {
       }
     };
 
-    // const fetchResults = async () => {
-    //   try {
-    //     const tableName = "Results";
-    //     const filterBy = "";
-    //     const sortField = "Created";
-    //     const sortDirection = "desc";
-    //     const Results = await fetchRecords(
-    //       tableName,
-    //       filterBy,
-    //       sortField,
-    //       sortDirection
-    //     );
-    //     console.log(Results);
-    //   } catch (error) {
-    //     console.error(error);
-    //   }
-    // };
-    // fetchResults();
     fetchData();
   }, []);
 
-  const getResult = (item) => {
-    setSelectedResult(item.fields.Name);
+  const getPrograms = async (item) => {
+    try {
+      const tableName = "Result";
+      const filterBy = `{Program} = '${item.fields.Name}'`;
+      const sortField = "Point";
+      const sortDirection = `asc`;
+      const Records = await fetchRecords(
+        tableName,
+        filterBy,
+        sortField,
+        sortDirection
+      );
+      console.log(Records);
+      setSelectedResult(item.fields.Name);
+      setResult(Records);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+  const getBadgeImage = (place) => {
+    switch (place) {
+      case "FIRST":
+        return Firstbadge;
+      case "SECOND":
+        return Secondbadge;
+      case "THIRD":
+        return Thirdbadge;
+      // Add more cases if needed
+      default:
+        return ''; // Return a default image or an empty string
+    }
+  };
+
   return (
     <div className="relative h-screen ">
 
@@ -117,7 +131,7 @@ function Results() {
 
                     key={index}
                   >
-                    <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getResult(item)}>
+                    <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
                       <p className="text-2xl font-medium ">{item.fields.Name}</p>
                     </div>
                   </motion.div>
@@ -144,43 +158,46 @@ function Results() {
             <div className="max-w-[450px]  mx-auto shadow-xl relative">
 
               <img src={offStagePoster} alt="offStagePoster" className="w-full h-auto" />
-<div className="absolute  h-full w-full top-0 left-0 right-0 bottom-0 flex flex-col">
-  <div className="basis-1/2">
+              <div className="absolute  h-full w-full top-0 left-0 right-0 bottom-0 flex flex-col">
+                <div className="basis-1/2">
 
-  </div>
-<div className="relative flex flex-col basis-1/2 items-center -mt-10 justify-between">
-<div className="font-bold text-lg -mt-1 respo-program">
-                {selectedResult}
-              </div>
-              <div className="felx-1 mt-2 h-full min-w-[280px] p-3">
-                <div className="flex h-full w-full">
-                  {/* badge */}
-                  <div className="basis-3/12 h-full w-full respo-winners">
-                    <div className="flex flex-col gap-4 my-2 respo-badge">
-
-                      <img src={Firstbadge} alt="Firstbadge" className=" w-12 top-0 " />
-                      <img src={Secondbadge} alt="Secondbadge" className=" w-12 top-0" />
-                    </div>
+                </div>
+                <div className="relative flex flex-col basis-1/2 items-center -mt-10 justify-between">
+                  <div className="font-bold text-lg -mt-1 respo-program">
+                    {selectedResult}
                   </div>
-                  {/* winners */}
-                  <div className="basis-9/12 h-full w-full">
-                    <div className="flex flex-col gap-4 my-4 ">
-                      <div>
-                        <p className="font-semibold respo-name">Muhammed Saleel</p>
-                        <p className="respo-year">Bsc (2nd Year)</p>
-                      </div>
-                      <div>
-                        <p className="font-semibold respo-name">Muhammed Saleel</p>
-                        <p className="respo-year">Bsc (2nd Year)</p>
+                  <div className="felx-1 mt-2 h-full min-w-[280px] p-3">
+  <div className="flex h-full w-full">
+
+                    <div className="basis-3/12 h-full w-full respo-winners">
+                      <div className="flex flex-col gap-4 my-2 respo-badge">
+                        {result.map((record, index) => (
+                          <img
+                            key={index}
+                            src={getBadgeImage(record.fields.Place)}
+                            alt={`Badge ${record.fields.Place}`}
+                            className="w-12 top-0"
+                          />
+                        ))}
                       </div>
                     </div>
+                    <div className="basis-9/12 h-full w-full">
+                      <div className="flex flex-col gap-4 my-4 ">
+                        {result.map((record, index) => (
+                          <div key={index}>
+                            <p className="font-semibold respo-name">{record.fields.Name}</p>
+                            <p className="respo-year">{record.fields.Department}  ({record.fields.Year} year)</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+
+                  </div>
                   </div>
                 </div>
-
               </div>
-</div>
-</div>
-            
+
 
               {/* <img src={Thirdbadge} alt="Thirdbadge" className=" absolute w-full h-auto" /> */}
             </div>
