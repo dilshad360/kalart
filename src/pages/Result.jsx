@@ -189,7 +189,7 @@ function Results() {
                   <img src={result[0].stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
 
                   <div className=" top-0 left-0 right-0 bottom-0 absolute ">
-                    <div className="flex flex-col justify-between items-center h-full w-full p-4 pt-8 gap-3 overflow-auto">
+                    <div className="flex flex-col justify-between items-center h-full w-full p-4 pt-8 gap-2 overflow-auto">
                       <div>
                         <img src={Union} alt="Union" className="w-44 h-auto mx-auto" />
                       </div>
