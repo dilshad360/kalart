@@ -29,7 +29,9 @@ function NavBar() {
     <div>
 
     <div className={`lg:hidden fixed top-0 w-full text-white p-12 flex items-center justify-between z-50 cursor-pointer h-6  ${navClass}`}>
+      <div className='nav-button'>
       <Example />
+      </div>
       <div className='flex w-full justify-end'>
         <Link
 

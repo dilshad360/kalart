@@ -1,28 +1,35 @@
 /* Example CSS - Update with your actual styles */
 .mySwiper {
   width: 100%;
-  height: auto; /* Set an explicit height */
+  height: auto;
 }
 
 .swiper-slide {
-  width: 400px; /* Set explicit width */
+  width: 300px !important; /* Set explicit width */
+  height: 500px !important; /* Set explicit height */
+}
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 10px;
+}
+.result-card-respo{
+  width: 420px;
+  height:  500px !important;
+}
+.result-card-respo {
+  width: 100%; 
+  max-width: 420px;
+  height: 100%; 
+  margin: auto;
+  overflow: hidden;
 }
 
 
 @media (max-width: 768px) {
-  .swiper {
+  .mySwiper {
     width: 100%;
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  .swiper-slide {
-    background-position: center;
-    background-size: cover;
-    width: 200px;
-  }
-  .swiper-slide img {
-    display: block;
-    width: 100%;
+    height: auto; 
   }
 }
 
@@ -44,7 +51,7 @@
   background-color: red;
   border-radius: 20px;
   margin-bottom: 10px; /* Adjust the spacing between skeleton items */
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); /* Customize the gradient to create a shimmer effect */
+  background: linear-gradient(90deg, #e7e7e7 25%, #cfcfcf 50%, #e7e7e7 75%); /* Customize the gradient to create a shimmer effect */
   background-size: 200% 100%; /* Set the size of the gradient background */
   animation: shimmer 1.5s infinite; /* Add animation for shimmer effect */
 }

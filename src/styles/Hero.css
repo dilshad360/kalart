@@ -55,25 +55,26 @@
 }
 
 /* Media queries for responsiveness */
-@media (max-width: 450px) {
+
+@media (max-width: 460px) {
     .absolute-container {
-        gap: 15px;
+        gap: 10px;
     }
   
     .child-1,
     .child-2 {
-        font-size: 20px;
+        font-size: 18px;
     }
     .child-2 {
         margin-top: -2px;
     }
 
     .child-3 {
-        font-size: 12px;
+        font-size: 10px;
     }
 
     .child-4 {
-        font-size: 8px;
+        font-size: 7px;
     }
 
     .child-logo {
@@ -81,17 +82,22 @@
     }
 
     .child-logo-p {
-        right: 50px;
-        bottom: 3px;
-        font-size: 10px;
+        right: 49px;
+        bottom: 7px;
+        font-size: 8px;
     }
 
     .child-date {
-        font-size: 10px;
+        font-size: 8px;
     }
 }
-
-@media (min-width: 451px) and (max-width: 600px) {
+@media (max-width: 390px) {
+    .absolute-container {
+        gap: 2px;
+        padding-top: 15px;
+    }
+}
+@media (min-width: 461px) and (max-width: 600px) {
 
     .absolute-container {
         gap: 15px;

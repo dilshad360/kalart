@@ -101,11 +101,44 @@ const Carousal = () => {
   return (
     <>
       {loading ? (
-        <div className="rounded-md skeleton-loading flex gap-10 mx-auto">
+          <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          slidesPerView={3}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
+          className="mySwiper rounded-md skeleton-loading flex gap-10 mx-auto"
+        >
+          <SwiperSlide>
           <div className="skeleton-item "></div>
+          </SwiperSlide>
+          <SwiperSlide>
           <div className="skeleton-item "></div>
+          </SwiperSlide>
+          <SwiperSlide>
           <div className="skeleton-item "></div>
-        </div>
+          </SwiperSlide>
+          <SwiperSlide>
+          <div className="skeleton-item "></div>
+          </SwiperSlide>
+       
+        </Swiper>
       ) : (
 
         <Swiper
@@ -132,16 +165,16 @@ const Carousal = () => {
           modules={[EffectCoverflow, Pagination, Autoplay]}
           className="mySwiper"
         >
-        
-            {result.map((item, index) => (
-              <SwiperSlide key={index}>
-                  <motion.div
-            initial={{ opacity: 0,scale: .5 }}
-            whileInView={{ opacity: 1, scale: 1 , transition: { duration: .5, delay: 0.1 } }}
-            viewport={{ once: true }}
-          >
-                <div className='rounded-md '>
-                  <div className="max-w-[400px]  mx-auto shadow-xl relative">
+
+          {result.map((item, index) => (
+            <SwiperSlide key={index}>
+              <motion.div
+                initial={{ opacity: 0, scale: .5 }}
+                whileInView={{ opacity: 1, scale: 1, transition: { duration: .5, delay: 0.1 } }}
+                viewport={{ once: true }}
+              >
+                <div className='rounded-md result-card-respo'>
+                  <div className="max-w-[400px]  mx-auto shadow-xl relative ">
                     <img src={item.stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
 
                     <div className=" top-0 left-0 right-0 bottom-0 absolute ">
@@ -153,7 +186,7 @@ const Carousal = () => {
                           <img src={Logo} alt="Logo" className="w-56 h-auto mx-auto" />
                         </div>
                         <div>
-                          <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase text-[16px]">
+                          <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase text-[10px] md:text-[10px]">
                             Fine Arts {item.stage} Result
                           </p>
                         </div>
@@ -188,10 +221,10 @@ const Carousal = () => {
                     </div>
                   </div>
                 </div>
-                </motion.div>
-              </SwiperSlide>
+              </motion.div>
+            </SwiperSlide>
 
-            ))}
+          ))}
         </Swiper>
 
       )}
