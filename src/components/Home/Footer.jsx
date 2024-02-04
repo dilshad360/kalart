@@ -5,10 +5,13 @@ import { faCoffee, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons
 import EmeaLogo from '../../assets/EMEAlogo.png';
 import Union40 from '../../assets/unionlogo.png';
 import Logo from '../../assets/logo.png';
-import { NavLink } from 'react-router-dom';
+import { NavLink  } from 'react-router-dom';
 
 function Footer() {
-  return (
+  const navigate = (url) => () => {
+    window.open(url, '_blank');
+  };
+    return (
     <div >
       <footer className='h-fit w-full  text-2xl text-center bg-red-950 text-white p-8 rounded-t-2xl flex flex-col justify-between pb-3 ' >
         <div className='flex justify-between flex-1 flex-row  gap-10 items-center responsive-footer'>
@@ -24,7 +27,7 @@ function Footer() {
                   40th Emea college students union
                 </p>
               </div>
-              <div className='flex gap-1 items-center '>
+              <div className='flex gap-1 items-center cursor-pointer' onClick={navigate('https://www.instagram.com/')} target='_black'>
                 <FontAwesomeIcon icon={faXTwitter} className='text-[16px]' />
                 <FontAwesomeIcon icon={faFacebookF} className='text-[16px]' />
                 <FontAwesomeIcon icon={faInstagram} className='text-[16px]' />

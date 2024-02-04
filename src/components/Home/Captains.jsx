@@ -22,7 +22,7 @@ function Captains() {
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-l-[30px] border-l-red-900 border-transparent absolute -left-4'></span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
-                        <span className='text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>bsc</span>
+                        <span className='text-2xl md:text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>bsc</span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
@@ -45,7 +45,7 @@ function Captains() {
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-l-[30px] border-l-red-900 border-transparent absolute -left-4'></span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
-                        <span className='text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>Bvoc</span>
+                        <span className='text-2xl md:text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>Bvoc</span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
@@ -65,7 +65,7 @@ function Captains() {
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-l-[30px] border-l-red-900 border-transparent absolute -left-4'></span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
-                        <span className='text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>arts</span>
+                        <span className='text-2xl md:text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>arts</span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
@@ -85,7 +85,7 @@ function Captains() {
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-l-[30px] border-l-red-900 border-transparent absolute -left-4'></span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
-                        <span className='text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>Commerce</span>
+                        <span className='text-2xl md:text-4xl font-bold  uppercase bg-gradient-to-b from-red-600  to-orange-500 inline-block text-transparent bg-clip-text'>Commerce</span>
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         {/* <span className='h-4 w-4 bg-red-900 rotate-45 absolute -right-2'></span> */}
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>

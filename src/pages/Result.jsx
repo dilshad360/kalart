@@ -12,7 +12,7 @@ import Firstbadge from '../assets/Poster/1st.png';
 import Secondbadge from '../assets/Poster/2nd.png';
 import Thirdbadge from '../assets/Poster/3rd.png';
 import Union from '../assets/Poster/40thUnion.png';
-import Logo from '../assets/logo.png';
+import Logo from '../assets/Poster/logo.png';
 import html2canvas from 'html2canvas';
 import "../styles/Result.css";
 
@@ -193,8 +193,9 @@ function Results() {
                       <div>
                         <img src={Union} alt="Union" className="w-44 h-auto mx-auto" />
                       </div>
-                      <div>
+                      <div className="relative">
                         <img src={Logo} alt="Logo" className="w-56 h-auto mx-auto" />
+                        <p className="uppercase absolute text-[12px] -bottom-1 right-12">Fine Arts 23-24</p>
                       </div>
                       <div>
                         <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase text-[16px] flex items-center justify-center">

@@ -11,7 +11,7 @@ import Firstbadge from '../../assets/Poster/1st.png';
 import Secondbadge from '../../assets/Poster/2nd.png';
 import Thirdbadge from '../../assets/Poster/3rd.png';
 import Union from '../../assets/Poster/40thUnion.png';
-import Logo from '../../assets/logo.png';
+import Logo from '../../assets/Poster/logo.png';
 import { fetchRecords } from "../../utils/airtableService";
 import '../../styles/Carousal.css';
 
@@ -180,10 +180,11 @@ const Carousal = () => {
                     <div className=" top-0 left-0 right-0 bottom-0 absolute ">
                       <div className="flex flex-col justify-between items-center h-full w-full p-4 pt-8 gap-3 overflow-clip">
                         <div>
-                          <img src={Union} alt="Union" className="w-44 h-auto mx-auto" />
+                          <img src={Union} alt="Union" className="w-40 h-auto mx-auto" />
                         </div>
-                        <div>
-                          <img src={Logo} alt="Logo" className="w-56 h-auto mx-auto" />
+                        <div className='relative'>
+                          <img src={Logo} alt="Logo" className="w-48 h-auto mx-auto" />
+                          <p className="uppercase absolute text-[10px] -bottom-1 right-10">Fine Arts 23-24</p>
                         </div>
                         <div>
                           <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase text-[10px] md:text-[10px]">
