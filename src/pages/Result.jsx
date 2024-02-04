@@ -70,9 +70,8 @@ function Results() {
         return Secondbadge;
       case "THIRD":
         return Thirdbadge;
-      // Add more cases if needed
       default:
-        return ''; // Return a default image or an empty string
+        return ''; 
     }
   };
 
