@@ -1,34 +1,56 @@
-.swiper {
+/* Example CSS - Update with your actual styles */
+.mySwiper {
+  width: 100%;
+  height: auto; /* Set an explicit height */
+}
+
+.swiper-slide {
+  width: 400px; /* Set explicit width */
+}
+
+
+@media (max-width: 768px) {
+  .swiper {
     width: 100%;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
-  
   .swiper-slide {
     background-position: center;
     background-size: cover;
-    width: 350px;
+    width: 200px;
   }
-  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+  }
+}
 
-  @media (max-width: 768px) {
-    .swiper {
-      width: 100%;
-      padding-top: 10px;
-      padding-bottom: 10px;
-    }
-    .swiper-slide {
-      background-position: center;
-      background-size: cover;
-      width: 200px;
-      /* height: 280px; */
-    }
-    .swiper-slide img {
-      display: block;
-      width: 100%;
-    }
-    .swiper-slide-shadow-coverflow{
-      display: none;
-    }
-    
+
+.swiper-slide-shadow-coverflow{
+  display: none;
+}
+/* Add these styles to your CSS */
+.skeleton-loading {
+  
+  border-radius: 0.375rem; /* Adjust the border radius to match your design */
+  overflow: hidden;
+  position: relative;
+}
+
+.skeleton-item {
+  height: 300px !important;
+  width: 200px !important;
+  background-color: red;
+  border-radius: 20px;
+  margin-bottom: 10px; /* Adjust the spacing between skeleton items */
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%); /* Customize the gradient to create a shimmer effect */
+  background-size: 200% 100%; /* Set the size of the gradient background */
+  animation: shimmer 1.5s infinite; /* Add animation for shimmer effect */
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0; /* Move the background position to create a shimmer effect */
   }
+}

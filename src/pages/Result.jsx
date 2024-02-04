@@ -6,18 +6,22 @@ import BgMain from "../assets/bg-kathakali.png";
 import bglogo from "../assets/bg-blurlogo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import offStagePoster from '../assets/Poster/offStage.jpg';
-// import onStagePoster from '../assets/Poster/onStage.jpg';
+import offStagePoster from '../assets/Poster/offstage.jpg';
+import onStagePoster from '../assets/Poster/onstage.jpg';
 import Firstbadge from '../assets/Poster/1st.png';
 import Secondbadge from '../assets/Poster/2nd.png';
-import Thirdbadge from '../assets/Poster/3rd.jpg';
+import Thirdbadge from '../assets/Poster/3rd.png';
+import Union from '../assets/Poster/40thUnion.png';
+import Logo from '../assets/logo.png';
+import html2canvas from 'html2canvas';
 import "../styles/Result.css";
 
 function Results() {
   const [resultList, setResultList] = useState([]);
   const [search, setSearch] = useState("");
-  const [selectedResult, setSelectedResult] = useState(null);
   const [result, setResult] = useState([]);
+  const [showCard, setShowCard] = useState(false);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -43,6 +47,9 @@ function Results() {
   }, []);
 
   const getPrograms = async (item) => {
+    setShowCard(false);
+    const SingleRecord = [];
+
     try {
       const tableName = "Result";
       const filterBy = `{Program} = '${item.fields.Name}'`;
@@ -55,8 +62,14 @@ function Results() {
         sortDirection
       );
       console.log(Records);
-      setSelectedResult(item.fields.Name);
-      setResult(Records);
+      SingleRecord.push({
+        programName: item.fields.Name,
+        records: Records,
+        stage: Records[0].fields.Stage,
+      });
+      console.log(SingleRecord);
+      setResult(SingleRecord);
+      setShowCard(true);
     } catch (error) {
       console.error(error);
     }
@@ -71,12 +84,22 @@ function Results() {
       case "THIRD":
         return Thirdbadge;
       default:
-        return ''; 
+        return '';
     }
   };
 
+  const DownloadPoster = async (program) => {
+    const card = document.querySelector('.poster-card');
+    const canvas = await html2canvas(card, { scale: 2 });
+    const imageUrl = canvas.toDataURL('image/png');
+    const a = document.createElement('a');
+    a.href = imageUrl;
+    a.download = `${program}_poster.png`;
+    a.click();
+  };
+
   return (
-    <div className="relative h-screen ">
+    <div className="relative h-screen overflow-y-scroll overflow-x-hidden">
 
       {/* images */}
       <div className="">
@@ -127,7 +150,6 @@ function Results() {
                     transition={{ duration: 0.2, delay: index * 0.1 }}
                     animate={{ x: 0, opacity: 1, scale: 1 }}
                     exit={{ x: 300, opacity: 0, scale: 0 }}
-
                     key={index}
                   >
                     <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
@@ -152,58 +174,80 @@ function Results() {
             <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
           )}
         </div>
-        {selectedResult && (
-          <div className="mx-auto w-full my-20">
-            <div className="max-w-[450px]  mx-auto shadow-xl relative">
 
-              <img src={offStagePoster} alt="offStagePoster" className="w-full h-auto" />
-              <div className="absolute  h-full w-full top-0 left-0 right-0 bottom-0 flex flex-col">
-                <div className="basis-1/2">
+        <div className="mx-auto w-full my-20">
+          <AnimatePresence>
+            {showCard && (
+              <motion.div
+                initial={{ opacity: 0, x: -300 }}
+                whileInView={{ opacity: 1, x: 0, }}
+                transition={{ duration: .2, delay: 0.3 }}
+                exit={{ opacity: 0, x: 300 }}
+                viewport={{ once: true }}
+              >
+                <div className="max-w-[450px]  mx-auto shadow-xl relative poster-card">
+                  <img src={result[0].stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
 
-                </div>
-                <div className="relative flex flex-col basis-1/2 items-center -mt-10 justify-between">
-                  <div className="font-bold text-lg -mt-1 respo-program">
-                    {selectedResult}
-                  </div>
-                  <div className="felx-1 mt-2 h-full min-w-[280px] p-3">
-  <div className="flex h-full w-full">
-
-                    <div className="basis-3/12 h-full w-full respo-winners">
-                      <div className="flex flex-col gap-4 my-2 respo-badge">
-                        {result.map((record, index) => (
-                          <img
-                            key={index}
-                            src={getBadgeImage(record.fields.Place)}
-                            alt={`Badge ${record.fields.Place}`}
-                            className="w-12 top-0"
-                          />
-                        ))}
+                  <div className=" top-0 left-0 right-0 bottom-0 absolute ">
+                    <div className="flex flex-col justify-between items-center h-full w-full p-4 pt-8 gap-3 overflow-auto">
+                      <div>
+                        <img src={Union} alt="Union" className="w-44 h-auto mx-auto" />
                       </div>
-                    </div>
-                    <div className="basis-9/12 h-full w-full">
-                      <div className="flex flex-col gap-4 my-4 ">
-                        {result.map((record, index) => (
-                          <div key={index}>
-                            <p className="font-semibold respo-name">{record.fields.Name}</p>
-                            <p className="respo-year">{record.fields.Department}  ({record.fields.Year} year)</p>
+                      <div>
+                        <img src={Logo} alt="Logo" className="w-56 h-auto mx-auto" />
+                      </div>
+                      <div>
+                        <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase text-[16px] flex items-center justify-center">
+                          Fine Arts {result[0].stage} Result
+                        </p>
+                      </div>
+                      <div>
+                        <p className="font-bold uppercase">
+                          {result[0].programName}
+                        </p>
+                      </div>
+                      <div className="flex flex-col bg-white/70 rounded-2xl  p-6 gap-2">
+
+                        {result[0].records.map((record, index) => (
+                          <div key={index} className="flex gap-8 items-center">
+                            <div>
+                              <img src={getBadgeImage(record.fields.Place)} alt={`Badge ${record.fields.Place}`} className="w-10 top-0" />
+                            </div>
+
+                            <div>
+                              <p className="font-semibold max-text-[16px]">{record.fields.Name}</p>
+                              <p className="text-[13px] ml-2">{record.fields.Department}  ({record.fields.Year} year)</p>
+                            </div>
+                            <div>
+                              {/* white space */}
+                            </div>
                           </div>
+
                         ))}
+                        <div>
+
+                        </div>
+
                       </div>
+                      <div>
+                        <p className="italic bg-gradient-to-t from-orange-600 to-yellow-300 text-transparent bg-clip-text font-bold text-2xl">
+                          Congratulations
+                        </p>
+                      </div>
+
                     </div>
 
 
                   </div>
-                  </div>
+
                 </div>
-              </div>
+                <button className="bg-red-900 text-white font-bold py-3 px-6 rounded-md uppercase text-[16px] mt-4 mx-auto max-w-[450px] w-full flex items-center justify-center transition-all ease-in-out hover:bg-orange-900" onClick={() => DownloadPoster(result[0].programName)}>Download Now</button>
+              </motion.div>
 
-
-              {/* <img src={Thirdbadge} alt="Thirdbadge" className=" absolute w-full h-auto" /> */}
-            </div>
-
-          </div>
-        )
-        }
+            )
+            }
+          </AnimatePresence>
+        </div>
 
       </div>
 
