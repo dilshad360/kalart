@@ -5,8 +5,10 @@ import ContentImage from '../../assets/ARTSlogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 import '../../styles/Hero.css';
+import { TypeAnimation } from 'react-type-animation';
 
 function Hero() {
+
     return (
         <div className='relative'>
 
@@ -19,7 +21,24 @@ function Hero() {
                 <div className="absolute-container z-20">
                     <div className='child-1-parent'>
                         <h1 className="child-1">“Vision Unveils: </h1>
-                        <h1 className="child-2">The Artistry Within”</h1>
+                        <h1 className="child-2">
+                            {/* The Artistry Within” */}
+                            <TypeAnimation
+                                sequence={[
+                                    // Same substring at the start will only be typed out once, initially
+                                    'The Artistry Within”',
+                                    2000, // wait 1s before replacing "Mice" with "Hamsters"
+                                    '',
+                                    1500,
+
+                                ]}
+                                wrapper="span"
+                                speed={10}
+                                className='child-2'
+                                style={{ display: 'inline-block' }}
+                                repeat={Infinity}
+                            />
+                        </h1>
                     </div>
                     <div>
                         <h4 className='child-3'>40th EMEA College Students Union</h4>

@@ -134,14 +134,14 @@ li {
 
 @media (max-width: 768px) {
     .nav-logo {
-        width: 150px;
+        width: 130px;
     }
    
 }
 
 @media (max-width: 550px) {
     .nav-logo {
-        width: 120px;
+        width: 90px;
     }
 
 }

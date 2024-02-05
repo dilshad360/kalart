@@ -39,7 +39,8 @@ function ScoreBoard() {
         {scoreBoardData.length ? (
           <div className=" gap-3   responsive--scoreBoard"  >
             {scoreBoardData.map((item, index) => (
-              <div  key={index}>
+              <>
+              {/* <div  key={index}> */}
               {/* by adding div and key={index} giving this for solve error but the responsive 2,2 and 1,1,1,1 and 4
               pattern will fail  */}
                 <motion.div
@@ -68,8 +69,10 @@ function ScoreBoard() {
                     <span className="mt-14 text-center text-2xl mx-auto font-bold">{item.fields.Total} <span className="font-semibold text-lg">pts</span></span>
                   </div>
                 </motion.div>
-                {/* {index % 2 !== 0 && <div className="scoreCard--responsive" />} */}
-              </div>
+                {index % 2 !== 0 && <div className="scoreCard--responsive" />}
+              {/* </div> */}
+              </>
+
             ))}
           </div>
         ) : (<div className="mx-auto my-4 w-full  flex items-center justify-center">
