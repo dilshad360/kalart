@@ -5,7 +5,7 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { EffectCoverflow, Pagination, Autoplay , Navigation } from 'swiper/modules';
+import { EffectCoverflow, Navigation,  Pagination, Autoplay  } from 'swiper/modules';
 import offStagePoster from '../../assets/Poster/offstage.jpg';
 import onStagePoster from '../../assets/Poster/onstage.jpg';
 import Firstbadge from '../../assets/Poster/1st.png';
@@ -16,7 +16,6 @@ import Logo from '../../assets/Poster/logo.png';
 import { fetchRecords } from "../../utils/airtableService";
 import '../../styles/Carousal.css';
 import Congrats from '../../assets/Poster/cngrts.png';
-
 const Carousal = () => {
   const [resultList, setResultList] = useState([]);
   const [result, setResult] = useState([]);
@@ -112,7 +111,7 @@ const Carousal = () => {
           //   delay: 2500,
           //   disableOnInteraction: false,
           // }}
-          slidesPerView={3}
+          slidesPerView={'auto'}
           coverflowEffect={{
             rotate: 50,
             stretch: 0,
@@ -147,15 +146,15 @@ const Carousal = () => {
           effect={'coverflow'}
           grabCursor={true}
           centeredSlides={true}
-          navigation
+          navigation={true}
           loop={true}
           autoplay={{
-            delay: 100,
+            delay: 1000,
             disableOnInteraction: false,
           }}
-          slidesPerView={3}
+          slidesPerView={'auto'}
           coverflowEffect={{
-            rotate: 110,
+            rotate: 50,
             stretch: 0,
             depth: 100,
             modifier: 1,
@@ -165,7 +164,7 @@ const Carousal = () => {
             clickable: true,
             dynamicBullets: true,
           }}
-          modules={[EffectCoverflow, Pagination, Autoplay,Navigation]}
+          modules={[EffectCoverflow,Navigation, Pagination, Autoplay]}
           className="mySwiper"
         >
           {result.map((item, index) => (
@@ -177,12 +176,12 @@ const Carousal = () => {
               >
                 <div className='rounded-md result-card-respo'>
                   <div className="max-w-[400px]  mx-auto shadow-xl relative ">
-                    <img src={item.stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
+                    <img src={item.stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover responsive-poster-img" />
 
                     <div className=" top-0 left-0 right-0 bottom-0 absolute ">
-                      <div className="flex flex-col justify-between items-center h-full w-full p-4 pt-8 gap-3 overflow-clip">
+                      <div className="flex flex-col justify-between items-center h-full w-full p-4 pt-8 gap-3 responsive-poster-card">
                         <div>
-                          <img src={Union} alt="Union" className="w-40 h-auto mx-auto" />
+                          <img src={Union} alt="Union" className="w-40 h-auto  mx-auto" />
                         </div>
                         <div className='relative'>
                           <img src={Logo} alt="Logo" className="w-48 h-auto mx-auto" />
@@ -224,8 +223,10 @@ const Carousal = () => {
                 </div>
               </motion.div>
             </SwiperSlide>
+            
 
           ))}
+        
         </Swiper>
 
       )}

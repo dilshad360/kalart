@@ -342,6 +342,7 @@
   }
 
   @media (min-width: 1200px) {
+   
     .responsive-custom-content {
         margin-top: -150px;
         padding-top: 100px !important;
@@ -357,3 +358,16 @@
         margin-top: 80px  !important;
       }
   }
+  
+  @media (min-width: 1400px) {
+    .absolute-container {
+        margin-top: -200px;
+    }
+    .responsive-content-img {
+      width: 580px;
+    }
+    .responsive-content-text>p {
+      font-size: 32px;
+    }
+  }
+    

@@ -26,7 +26,7 @@ function Hero() {
                         <h6 className='child-4'>presents</h6>
                     </div>
                     <div className='relative'>
-                        <img src={Logo2} alt="logo2" className='child-logo' />
+                        <img src={Logo2} alt="logo2" className='child-logo   z-20' />
                         <p className='child-logo-p'>Fine Arts 23-24</p>
                     </div>
                     <div>
@@ -45,15 +45,21 @@ function Hero() {
 
                     <div className='mt-10 p-4  text-center md:text-left flex flex-col gap-4 max-w-[600px] mx-auto responsive-content-text basis-9/12 justify-center items-center'>
                         <p className=''>
-                            Welcome to EMEA College of Arts & Science's vibrant world of creativity! Immerse yourself in the magic of <strong className='font-black text-lg'>
+                            Welcome to EMEA College of Arts & Science's vibrant world of creativity! Immerse yourself in the magic of
+                            {/* <strong className='font-black text-lg'>
                                 कലാർട്ട്,
-                            </strong>our two-day art festival celebrating diverse artistic expressions.
+                            </strong> */}
+                            <strong>&nbsp;
+                                kALART
+                            </strong>,&nbsp;
+                            our two-day art festival celebrating diverse artistic expressions.
                         </p>
                         <p className=''>
                             Explore a spectrum of events, from mesmerizing performances to breathtaking exhibitions. Stay tuned for the unveiling of results, showcasing the extraordinary accomplishments of our talented participants.
                         </p>
+
                         <p className=''>
-                            Meet the dedicated coordinators and convenors behind<strong>
+                            Meet the dedicated coordinators and convenors behind <strong>
                                 kALART</strong>, the driving forces ensuring a seamless and memorable experience. They embody the festival's spirit of collaboration and creativity.
                         </p>
                         {/* <p className=''>

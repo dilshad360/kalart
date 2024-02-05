@@ -36,7 +36,7 @@ function Home() {
   const navClass = isScrolled ? 'opacity-100 delay-100' : 'opacity-0';
 
   return (
-    <div className='mx-auto overflow-hidden'>
+    <div className='mx-auto overflow-hidden select-none'>
       <NavBar />
       <Hero />
       <div className='container mx-auto'>

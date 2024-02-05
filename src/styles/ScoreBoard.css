@@ -69,29 +69,30 @@
 }
 
 /* score card 2,2 1*4 pattern */
-.scoreCard--responsive {
+/* .scoreCard--responsive {
     width: 0px;
 
-  }
+  } */
   
   .responsive--scoreBoard {
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    /* flex-wrap: wrap; */
   }
   
-  @media (min-width:900px)and (max-width: 1290px) {
+  /* @media (min-width:900px)and (max-width: 1290px) {
     .scoreCard--responsive {
       width: 100% ;
     }
-  }
+  } */
   
-  @media (max-width: 540px) {
+  @media (max-width: 1000px) {
     .responsive--scoreBoard {
-      display: flex;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       flex-direction: column;
     }
   }
-  /* @media (min-width: 768px) and (max-width: 1024px) {
-   
-  } */
-    
