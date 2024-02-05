@@ -36,6 +36,7 @@
 .swiper-slide {
   width: auto !important; 
   height: 650px !important; 
+  scale: 0.9;
 }
 .swiper {
   width: 100%;

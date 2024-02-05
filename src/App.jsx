@@ -42,8 +42,8 @@ function Home() {
       <div className='container mx-auto'>
         <div id='scoreBoard'>
           <ScoreBoard />
-          <Individual />
           <Result />
+          <Individual />
         </div>
         <Committe />
         <Captains />

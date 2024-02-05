@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide , useSwiper} from 'swiper/react';
 import { motion } from "framer-motion"
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { EffectCoverflow, Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
-import { EffectCoverflow, Navigation,  Pagination, Autoplay  } from 'swiper/modules';
+import 'swiper/css/effect-coverflow';
 import offStagePoster from '../../assets/Poster/offstage.jpg';
 import onStagePoster from '../../assets/Poster/onstage.jpg';
 import Firstbadge from '../../assets/Poster/1st.png';
@@ -27,7 +27,7 @@ const Carousal = () => {
       const filterBy = "";
       const sortField = "Created";
       const sortDirection = "asc";
-      const maxRecords = 5;
+      const maxRecords = 7;
       const Records = await fetchRecords(
         tableName,
         filterBy,
@@ -36,7 +36,7 @@ const Carousal = () => {
         maxRecords
       );
       setResultList(Records);
-      console.log(Records);
+      // console.log(Records);
     } catch (error) {
       console.error(error);
     }
@@ -68,7 +68,7 @@ const Carousal = () => {
       }
       setLoading(false);
       setResult(allRecords);
-      console.log(allRecords);
+      // console.log(allRecords);
     } catch (error) {
       console.error(error);
     }
@@ -102,54 +102,13 @@ const Carousal = () => {
   return (
     <>
       {loading ? (
-          <Swiper
-          effect={'coverflow'}
-          grabCursor={true}
-          centeredSlides={true}
-          loop={true}
-          // autoplay={{
-          //   delay: 2500,
-          //   disableOnInteraction: false,
-          // }}
-          slidesPerView={'auto'}
-          coverflowEffect={{
-            rotate: 50,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: true,
-          }}
-          pagination={{
-            clickable: true,
-            dynamicBullets: true,
-          }}
-          modules={[EffectCoverflow, Pagination, Autoplay ]}
-          className="mySwiper rounded-md skeleton-loading flex gap-10 mx-auto"
-        >
-          <SwiperSlide>
-          <div className="skeleton-item "></div>
-          </SwiperSlide>
-          <SwiperSlide>
-          <div className="skeleton-item "></div>
-          </SwiperSlide>
-          <SwiperSlide>
-          <div className="skeleton-item "></div>
-          </SwiperSlide>
-          <SwiperSlide>
-          <div className="skeleton-item "></div>
-          </SwiperSlide>
-       
-        </Swiper>
-      ) : (
-
         <Swiper
           effect={'coverflow'}
           grabCursor={true}
           centeredSlides={true}
-          navigation={true}
           loop={true}
           autoplay={{
-            delay: 1000,
+            delay: 2500,
             disableOnInteraction: false,
           }}
           slidesPerView={'auto'}
@@ -164,7 +123,48 @@ const Carousal = () => {
             clickable: true,
             dynamicBullets: true,
           }}
-          modules={[EffectCoverflow,Navigation, Pagination, Autoplay]}
+          modules={[EffectCoverflow, Navigation, Pagination, Autoplay]}
+          className="mySwiper rounded-md skeleton-loading flex gap-10 mx-auto"
+        >
+          <SwiperSlide>
+            <div className="skeleton-item "></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="skeleton-item "></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="skeleton-item "></div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="skeleton-item "></div>
+          </SwiperSlide>
+
+        </Swiper>
+      ) : (
+
+        <Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={'auto'}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          // navigation={true}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={{
+            clickable: true,
+            dynamicBullets: true,
+          }}
+          modules={[EffectCoverflow, Navigation, Pagination, Autoplay]}
           className="mySwiper"
         >
           {result.map((item, index) => (
@@ -215,7 +215,7 @@ const Carousal = () => {
                           <div></div>
                         </div>
                         <div>
-                         <img src={Congrats} alt='Congratulations' className='w-40 '/>
+                          <img src={Congrats} alt='Congratulations' className='w-40 ' />
                         </div>
                       </div>
                     </div>
@@ -223,10 +223,10 @@ const Carousal = () => {
                 </div>
               </motion.div>
             </SwiperSlide>
-            
+
 
           ))}
-        
+
         </Swiper>
 
       )}
