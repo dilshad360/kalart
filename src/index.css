@@ -209,7 +209,6 @@ body {
   .responsive-footer {
     display: flex;
     gap: 40px;
-
     flex-direction: column-reverse;
     margin-bottom: 20px;
   }

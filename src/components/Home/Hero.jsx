@@ -43,11 +43,11 @@ function Hero() {
                         <img src={ContentImage} alt="content" className=' responsive-content-img' />
                     </div>
 
-                    <div className='mt-10 p-4  font-semibold text-center md:text-left flex flex-col gap-4 max-w-[600px] mx-auto responsive-content-text basis-9/12'>
+                    <div className='mt-10 p-4  text-center md:text-left flex flex-col gap-4 max-w-[600px] mx-auto responsive-content-text basis-9/12 justify-center items-center'>
                         <p className=''>
-                            Welcome to EMEA College of Arts & Science's vibrant world of creativity! Immerse yourself in the magic of <strong>
-                                "kALART,"
-                            </strong> our two-day art festival celebrating diverse artistic expressions.
+                            Welcome to EMEA College of Arts & Science's vibrant world of creativity! Immerse yourself in the magic of <strong className='font-black text-lg'>
+                                कലാർട്ട്,
+                            </strong>our two-day art festival celebrating diverse artistic expressions.
                         </p>
                         <p className=''>
                             Explore a spectrum of events, from mesmerizing performances to breathtaking exhibitions. Stay tuned for the unveiling of results, showcasing the extraordinary accomplishments of our talented participants.
@@ -56,12 +56,12 @@ function Hero() {
                             Meet the dedicated coordinators and convenors behind<strong>
                                 kALART</strong>, the driving forces ensuring a seamless and memorable experience. They embody the festival's spirit of collaboration and creativity.
                         </p>
-                        <p className=''>
+                        {/* <p className=''>
                             Join us in celebrating the power of art to inspire, provoke, and unite.
                             <strong>kALART
                             </strong> is more than an event; it's a testament to the boundless potential within each of us. Be part of this artistic extravaganza, where every moment is a masterpiece waiting to be unveiled. Let the colors of <strong>
                                 kALART </strong> paint the canvas of your imagination!
-                        </p>
+                        </p> */}
                     </div>
                 </div>
                 {/* Your card content here */}

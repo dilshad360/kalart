@@ -7,11 +7,6 @@
 .respo-logo{
     width: 220px ;
 }
-.respo-logo-child{
-    font-size: 10px;
-    bottom: -4px;
-    right: 48px;
-}
 .respo-stage{
     font-size: 18px;
     padding: 4px 26px !important;
@@ -46,11 +41,6 @@
     .respo-logo{
         width: 200px ;
     }
-    .respo-logo-child{
-        font-size: 10px;
-        bottom: -4px;
-        right: 45px;
-    }
     .respo-stage{
         font-size: 15px;
         padding: 4px 26px !important;
@@ -84,11 +74,6 @@
     .respo-logo{
         width: 160px ;
     }
-    .respo-logo-child{
-        font-size: 10px;
-        bottom: -4px;
-        right: 36px;
-    }
     .respo-stage{
         font-size: 10px;
         padding: 4px 26px !important;
@@ -121,11 +106,6 @@
     }
     .respo-logo{
         width: 140px ;
-    }
-    .respo-logo-child{
-        font-size: 7px;
-        bottom: -4px;
-        right: 32px;
     }
     .respo-stage{
         font-size: 8px;

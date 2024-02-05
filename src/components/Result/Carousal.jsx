@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { Swiper, SwiperSlide , useSwiper} from 'swiper/react';
 import { motion } from "framer-motion"
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import { EffectCoverflow, Pagination, Autoplay } from 'swiper/modules';
+import 'swiper/css/navigation';
+import { EffectCoverflow, Pagination, Autoplay , Navigation } from 'swiper/modules';
 import offStagePoster from '../../assets/Poster/offstage.jpg';
 import onStagePoster from '../../assets/Poster/onstage.jpg';
 import Firstbadge from '../../assets/Poster/1st.png';
@@ -14,6 +15,7 @@ import Union from '../../assets/Poster/40thUnion.png';
 import Logo from '../../assets/Poster/logo.png';
 import { fetchRecords } from "../../utils/airtableService";
 import '../../styles/Carousal.css';
+import Congrats from '../../assets/Poster/cngrts.png';
 
 const Carousal = () => {
   const [resultList, setResultList] = useState([]);
@@ -26,7 +28,7 @@ const Carousal = () => {
       const filterBy = "";
       const sortField = "Created";
       const sortDirection = "asc";
-      const maxRecords = 8;
+      const maxRecords = 5;
       const Records = await fetchRecords(
         tableName,
         filterBy,
@@ -106,10 +108,10 @@ const Carousal = () => {
           grabCursor={true}
           centeredSlides={true}
           loop={true}
-          autoplay={{
-            delay: 2500,
-            disableOnInteraction: false,
-          }}
+          // autoplay={{
+          //   delay: 2500,
+          //   disableOnInteraction: false,
+          // }}
           slidesPerView={3}
           coverflowEffect={{
             rotate: 50,
@@ -122,7 +124,7 @@ const Carousal = () => {
             clickable: true,
             dynamicBullets: true,
           }}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
+          modules={[EffectCoverflow, Pagination, Autoplay ]}
           className="mySwiper rounded-md skeleton-loading flex gap-10 mx-auto"
         >
           <SwiperSlide>
@@ -145,14 +147,15 @@ const Carousal = () => {
           effect={'coverflow'}
           grabCursor={true}
           centeredSlides={true}
+          navigation
           loop={true}
           autoplay={{
-            delay: 2500,
+            delay: 100,
             disableOnInteraction: false,
           }}
           slidesPerView={3}
           coverflowEffect={{
-            rotate: 50,
+            rotate: 110,
             stretch: 0,
             depth: 100,
             modifier: 1,
@@ -162,10 +165,9 @@ const Carousal = () => {
             clickable: true,
             dynamicBullets: true,
           }}
-          modules={[EffectCoverflow, Pagination, Autoplay]}
+          modules={[EffectCoverflow, Pagination, Autoplay,Navigation]}
           className="mySwiper"
         >
-
           {result.map((item, index) => (
             <SwiperSlide key={index}>
               <motion.div
@@ -184,7 +186,7 @@ const Carousal = () => {
                         </div>
                         <div className='relative'>
                           <img src={Logo} alt="Logo" className="w-48 h-auto mx-auto" />
-                          <p className="uppercase absolute text-[10px] -bottom-1 right-10">Fine Arts 23-24</p>
+                          {/* <p className="uppercase absolute text-[10px] -bottom-1 right-10">Fine Arts 23-24</p> */}
                         </div>
                         <div>
                           <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase text-[10px] md:text-[10px]">
@@ -214,9 +216,7 @@ const Carousal = () => {
                           <div></div>
                         </div>
                         <div>
-                          <p className="italic bg-gradient-to-t from-orange-600 to-yellow-300 text-transparent bg-clip-text font-bold text-2xl">
-                            Congratulations
-                          </p>
+                         <img src={Congrats} alt='Congratulations' className='w-40 '/>
                         </div>
                       </div>
                     </div>

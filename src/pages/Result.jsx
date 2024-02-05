@@ -14,6 +14,7 @@ import Thirdbadge from '../assets/Poster/3rd.png';
 import Union from '../assets/Poster/40thUnion.png';
 import Logo from '../assets/Poster/logo.png';
 import html2canvas from 'html2canvas';
+import Congrats from '../assets/Poster/cngrts.png';
 import "../styles/Result.css";
 
 function Results() {
@@ -90,13 +91,18 @@ function Results() {
 
   const DownloadPoster = async (program) => {
     const card = document.querySelector('.poster-card');
-    const canvas = await html2canvas(card, { scale: 2 });
-    const imageUrl = canvas.toDataURL('image/png');
+
+    // Adding a delay of 1000 milliseconds before capturing the canvas
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    const canvas = await html2canvas(card);
+    const imageUrl = canvas.toDataURL('image/jpg');
     const a = document.createElement('a');
     a.href = imageUrl;
-    a.download = `${program}_poster.png`;
+    a.download = `${program}_poster.jpg`;
     a.click();
   };
+
 
   return (
     <div className="relative h-screen overflow-y-scroll overflow-x-hidden">
@@ -133,7 +139,7 @@ function Results() {
             }}
           />
           {resultList.length ? (
-            <div className="flex justify-center items-center gap-10 flex-wrap max-h-[410px] overflow-auto  p-1">
+            <div className="flex justify-center items-center gap-10 flex-wrap   p-1">
               <AnimatePresence>
                 {resultList.filter((val) => {
                   if (search === "") {
@@ -186,6 +192,7 @@ function Results() {
                 viewport={{ once: true }}
               >
                 <div className="max-w-[450px]  mx-auto shadow-xl relative poster-card">
+
                   <img src={result[0].stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
 
                   <div className="top-0 left-0 right-0 bottom-0 absolute overflow-auto">
@@ -198,20 +205,15 @@ function Results() {
                         </div>
                         <div className="relative">
                           <img src={Logo} alt="Logo" className=" h-auto mx-auto respo-logo" />
-                          <p className="uppercase absolute  respo-logo-child">Fine Arts 23-24</p>
                         </div>
 
                       </div>
 
                       <div className="flex flex-col items-center justify-between gap-1  h-fit">
+                        <p className=" w-full bg-blue-800  flex items-center justify-center py-1 px-4 rounded-full text-white font-semibold">
+                          Fine Arts {result[0].stage} Result
+                        </p>
 
-                        <div>
-                          <p className="bg-blue-900 text-white font-bold py-1 px-6 rounded-full uppercase  flex items-center justify-center text-center respo-stage">
-                            <span>
-                              Fine Arts {result[0].stage} Result
-                            </span>
-                          </p>
-                        </div>
                         <div>
                           <p className="font-bold uppercase  respo-program">
                             {result[0].programName}
@@ -241,9 +243,8 @@ function Results() {
                           </div>
 
                         </div>
-                        <p className="italic bg-gradient-to-t from-orange-600 to-yellow-300 text-transparent bg-clip-text font-bold  respo-congrats">
-                          Congratulations
-                        </p>
+
+                        <img src={Congrats} alt="Congrats" className="w-44 h-auto mx-auto respo-congrats" />
                       </div>
                     </div>
                     <div>
