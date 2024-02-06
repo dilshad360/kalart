@@ -58,6 +58,7 @@ function Hero() {
             <div className='-mt-16  h-fit w-full z-50 mx-auto md:px-14 px-10'>
                 <div className='bg-white h-full w-full pt-10 text-center relative flex  overflow-hidden rounded-b-lg  responsive-custom-content p-2'>
                     <div className='mx-auto responsive-content-img-card '>
+
                         <img src={ContentImage} alt="content" className=' responsive-content-img' />
                     </div>
 
