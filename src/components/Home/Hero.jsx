@@ -50,7 +50,7 @@ function Hero() {
                     </div>
                     <div>
                         <h5 className='child-date'>
-                            <FontAwesomeIcon icon={faCalendar} />&nbsp;07 FEB - 08 FEB 2024</h5>
+                            <FontAwesomeIcon icon={faCalendar} />&nbsp;08 FEB - 09 FEB 2024</h5>
                     </div>
                 </div>
 
@@ -58,6 +58,7 @@ function Hero() {
             <div className='-mt-16  h-fit w-full z-50 mx-auto md:px-14 px-10'>
                 <div className='bg-white h-full w-full pt-10 text-center relative flex  overflow-hidden rounded-b-lg  responsive-custom-content p-2'>
                     <div className='mx-auto responsive-content-img-card '>
+
                         <img src={ContentImage} alt="content" className=' responsive-content-img' />
                     </div>
 
