@@ -1,4 +1,4 @@
-import React from 'react'
+
 import main1 from '../../assets/Avatars/Committe/Main/img1.png'
 import main2 from '../../assets/Avatars/Committe/Main/img2.png'
 import main3 from '../../assets/Avatars/Committe/Main/img3.png'

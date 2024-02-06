@@ -21,6 +21,7 @@ function Results() {
   const [resultList, setResultList] = useState([]);
   const [search, setSearch] = useState("");
   const [result, setResult] = useState([]);
+  const [showResultCard , setShowResultList] = useState(true);
   const [showCard, setShowCard] = useState(false);
 
 
@@ -49,6 +50,7 @@ function Results() {
 
   const getPrograms = async (item) => {
     setShowCard(false);
+    setShowResultList(false);
     const SingleRecord = [];
 
     try {
@@ -136,10 +138,14 @@ function Results() {
             className="bg-[#FFEACC] w-full md:w-1/3 h-12 px-6 border-none rounded-lg focus:outline-none mb-6 min-w-[300px] focus:shadow-lg transition duration-300 ease-in-out"
             onChange={(e) => {
               setSearch(e.target.value);
+              setShowResultList(true);
+              setShowCard(false)
             }}
           />
-          {resultList.length ? (
-            <div className="flex justify-center items-center gap-10 flex-wrap   p-1">
+          { showResultCard && (
+            <>
+          { resultList.length ? (
+            <div className="flex justify-center items-center gap-4 flex-wrap p-1">
               <AnimatePresence>
                 {resultList.filter((val) => {
                   if (search === "") {
@@ -179,9 +185,11 @@ function Results() {
           ) : (
             <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
           )}
+          </>
+          )}
         </div>
 
-        <div className="mx-auto w-full my-20">
+        <div className="mx-auto w-full my-50">
           <AnimatePresence>
             {showCard && (
               <motion.div
@@ -191,7 +199,7 @@ function Results() {
                 exit={{ opacity: 0, x: 300 }}
                 viewport={{ once: true }}
               >
-                <div className="max-w-[450px]  mx-auto shadow-xl relative poster-card">
+                <div className="max-w-[450px]  mx-auto shadow-xl relative poster-card ">
 
                   <img src={result[0].stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
 

@@ -1,7 +1,5 @@
-import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faInstagram, faFacebookF, faXTwitter } from '@fortawesome/free-brands-svg-icons';
-import { faCoffee, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
 import EmeaLogo from '../../assets/EMEAlogo.png';
 import Union40 from '../../assets/unionlogo.png';
 import Logo from '../../assets/logo.png';
@@ -27,9 +25,8 @@ function Footer() {
                   40th Emea college students union
                 </p>
               </div>
-              <div className='flex gap-1 items-center cursor-pointer' onClick={navigate('https://www.instagram.com/')} target='_black'>
-                <FontAwesomeIcon icon={faXTwitter} className='text-[16px]' />
-                <FontAwesomeIcon icon={faFacebookF} className='text-[16px]' />
+              <div className='flex gap-1 items-center cursor-pointer mt-2' onClick={navigate('https://www.instagram.com/40th_studentsunion_emea/')} target='_black'>
+
                 <FontAwesomeIcon icon={faInstagram} className='text-[16px]' />
 
                 <p className='text-[16px]'>40th_studentsunion_emea</p>
@@ -56,9 +53,9 @@ function Footer() {
               <img src={EmeaLogo} alt='EMEA Logo' />
 
             </div>
-            <div className='flex flex-col  items-end text-[18px] font-bold responsive-footer-child'>
+            <div className='flex flex-col  items-end text-[18px] font-bold responsive-footer-child opacity-70'>
               <p>EMEA College of Arts and Science-Kondotty</p>
-              <p>Re-accredited with’A’ Grade by NAAC</p>
+              {/* <p>Re-accredited with’A’ Grade by NAAC</p> */}
             </div>
             {/* <div className='flex flex-col items-end text-stone-400 text-[15px] leading-5  responsive-footer-child'>
               <p>Kumminiparamaba PO, Kondotty, Malappuram Dt.</p>
@@ -95,9 +92,9 @@ function Footer() {
           </NavLink>
           {/* &nbsp;Buy us a <FontAwesomeIcon icon={faCoffee} /> */}
         </div>
-        <marquee className="mt-2">
-          <p className='text-stone-400 text-[16px]'>© 2024 EMEA College of Arts and Science-Kondotty Union. All Rights Reserved</p>
-        </marquee>
+        <div>
+          <p className='text-stone-400 text-[12px] text-opacity-50'>© 2024 EMEA College of Arts and Science-Kondotty Union. All Rights Reserved</p>
+        </div>
       </footer>
     </div>
   );

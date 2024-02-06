@@ -27,7 +27,7 @@ const Carousal = () => {
       const filterBy = "";
       const sortField = "Created";
       const sortDirection = "asc";
-      const maxRecords = 7;
+      const maxRecords = 4;
       const Records = await fetchRecords(
         tableName,
         filterBy,
@@ -156,7 +156,7 @@ const Carousal = () => {
           coverflowEffect={{
             rotate: 50,
             stretch: 0,
-            depth: 100,
+            depth: 200,
             modifier: 1,
             slideShadows: true,
           }}

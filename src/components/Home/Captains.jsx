@@ -1,22 +1,22 @@
-import React from 'react'
 import Bsc from '../../assets/Avatars/Captains/Bsc/img.png'
 import Bvoc from '../../assets/Avatars/Captains/Bvoc/img.png'
 import Commerce from '../../assets/Avatars/Captains/Commerce/img.png'
 import Arts from '../../assets/Avatars/Captains/Arts/img.png'
 import { motion } from "framer-motion"
 import '../../styles/Responsive.css'
-import { useEffect } from 'react'
+
 
 function Captains() {
-   
-      
+
+
     return (
         <div id='captains' className='mt-40 mb-16 '>
             <h1 className='text-center text-4xl font-bold text-red-950 mb-12'>Captains</h1>
             <div className='flex flex-col gap-16 p-4 mx-auto items-center max-w-[900px]'>
                 <motion.div
-                    initial={{ opacity: 0, x: -300 }}
-                    whileInView={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.2 } }}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.3 }}
                     viewport={{ once: true }}
                 >
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
@@ -27,19 +27,20 @@ function Captains() {
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
                     <div>
-                    <img src={Bsc} alt="Bsc" className='responsive-image-captains' />
-                    <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
-                        <p>Sabik</p>
-                        <p>Ansaba</p>
-                        <p>Nourin</p>
-                        <p className='-mr-6'>Hamza Nizam</p>
+                        <img src={Bsc} alt="Bsc" className='responsive-image-captains' />
+                        <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
+                            <p>Sabik</p>
+                            <p>Ansaba</p>
+                            <p>Nourin</p>
+                            <p className='-mr-6'>Hamza Nizam</p>
+                        </div>
                     </div>
-                    </div>
-                    
+
                 </motion.div>
                 <motion.div
-                    initial={{ opacity: 0, x: -300 }}
-                    whileInView={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.2 } }}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.3 }}
                     viewport={{ once: true }}
                 >
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
@@ -58,8 +59,9 @@ function Captains() {
                     </div>
                 </motion.div>
                 <motion.div
-                    initial={{ opacity: 0, x: -300 }}
-                    whileInView={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.2 } }}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.3 }}
                     viewport={{ once: true }}
                 >
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
@@ -78,8 +80,9 @@ function Captains() {
                     </div>
                 </motion.div>
                 <motion.div
-                    initial={{ opacity: 0, x: -300 }}
-                    whileInView={{ opacity: 1, x: 0, transition: { duration: 1, delay: 0.2 } }}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 0.3 }}
                     viewport={{ once: true }}
                 >
                     <div className='text-center flex items-center gap-2  relative  mx-6 mb-6 overflow-hidden'>
