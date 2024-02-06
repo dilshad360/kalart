@@ -50,7 +50,7 @@ function Hero() {
                     </div>
                     <div>
                         <h5 className='child-date'>
-                            <FontAwesomeIcon icon={faCalendar} />&nbsp;07 FEB - 08 FEB 2024</h5>
+                            <FontAwesomeIcon icon={faCalendar} />&nbsp;08 FEB - 09 FEB 2024</h5>
                     </div>
                 </div>
 

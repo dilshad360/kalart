@@ -18,8 +18,8 @@ function Committe() {
       <h1 className='font-bold text-3xl text-center mb-10 text-black'>Committee</h1>
       <main className='flex flex-col gap-16 p-4 mx-auto items-center '>
         {/* Main Committe */}
-
         <section className='flex gap-10  mx-auto items-center justify-center  max-w-full main-committe-parent'>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -41,6 +41,7 @@ function Committe() {
               </div>
             </div>
           </motion.div>
+
           <motion.div
             initial={{ opacity: 0, scale: 0.5 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -79,7 +80,7 @@ function Committe() {
                 <div className='absolute background-custom-color h-[70px] w-10 -bottom-8 -right-5 rotate-45'></div>
               </div>
               <div className='flex items-center justify-start  w-full'>
-                <h3 className='font-semibold text-2xl leading-6 text-gray-900 mt-2 main-committee-name'>Nihal<br /> Kuruniyan</h3>
+                <h3 className='font-semibold text-2xl leading-6 text-gray-900 mt-2 main-committee-name'>Nihal <br/>Kuruniyan</h3>
               </div>
             </div>
           </motion.div>

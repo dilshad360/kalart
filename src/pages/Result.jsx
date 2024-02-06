@@ -30,7 +30,7 @@ function Results() {
       try {
         const tableName = "Published Programs";
         const filterBy = "";
-        const sortField = "Created";
+        const sortField = "auto";
         const sortDirection = "desc";
         const Records = await fetchRecords(
           tableName,

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { fetchRecords } from "../../utils/airtableService";
 import { motion, AnimatePresence } from "framer-motion";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
 
 function Individual() {
 

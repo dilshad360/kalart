@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from "framer-motion"
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { EffectCoverflow, Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -25,8 +25,8 @@ const Carousal = () => {
     try {
       const tableName = "Published Programs";
       const filterBy = "";
-      const sortField = "Created";
-      const sortDirection = "asc";
+      const sortField = "auto";
+      const sortDirection = "desc";
       const maxRecords = 4;
       const Records = await fetchRecords(
         tableName,

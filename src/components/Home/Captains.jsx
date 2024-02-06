@@ -1,7 +1,7 @@
-import Bsc from '../../assets/Avatars/Captains/Bsc/img.png'
-import Bvoc from '../../assets/Avatars/Captains/Bvoc/img.png'
-import Commerce from '../../assets/Avatars/Captains/Commerce/img.png'
-import Arts from '../../assets/Avatars/Captains/Arts/img.png'
+import Bsc from '../../assets/Avatars/Captains/bsc.png'
+import Bvoc from '../../assets/Avatars/Captains/bvoc.png'
+import Commerce from '../../assets/Avatars/Captains/comm.png'
+import Arts from '../../assets/Avatars/Captains/arts.png'
 import { motion } from "framer-motion"
 import '../../styles/Responsive.css'
 
