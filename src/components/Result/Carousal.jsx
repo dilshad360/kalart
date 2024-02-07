@@ -6,7 +6,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import 'swiper/css/effect-coverflow';
-import offStagePoster from '../../assets/Poster/offstage.jpg';
+import offStagePoster from '../../assets/Poster/offStage.jpg';
 import onStagePoster from '../../assets/Poster/onstage.jpg';
 import Firstbadge from '../../assets/Poster/1st.png';
 import Secondbadge from '../../assets/Poster/2nd.png';

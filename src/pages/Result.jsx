@@ -6,7 +6,7 @@ import BgMain from "../assets/bg-kathakali.png";
 import bglogo from "../assets/bg-blurlogo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import offStagePoster from '../assets/Poster/offstage.jpg';
+import offStagePoster from '../assets/Poster/offStage.jpg';
 import onStagePoster from '../assets/Poster/onstage.jpg';
 import Firstbadge from '../assets/Poster/1st.png';
 import Secondbadge from '../assets/Poster/2nd.png';
