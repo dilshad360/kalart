@@ -165,7 +165,7 @@ const Carousal = () => {
             dynamicBullets: true,
           }}
           modules={[EffectCoverflow, Navigation, Pagination, Autoplay]}
-          className="mySwiper"
+          className="mySwiper2"
         >
           {result.map((item, index) => (
             <SwiperSlide key={index}>

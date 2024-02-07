@@ -11,7 +11,7 @@ function Result() {
         whileInView={{ opacity: 1, transition: { duration: 1, delay: 0.5 } }}
         viewport={{ once: true }}
       >
-        <div className='w-full flex gap-3 items-center' id='result'>
+        <div className='w-full flex gap-3 items-center m-auto' id='result'>
           <Carousal />
 
         </div>
