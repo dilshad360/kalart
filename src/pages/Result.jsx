@@ -165,7 +165,7 @@ function Results() {
                     key={index}
                   >
                     <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
-                      <p className="text-lg md:text-2xl font-medium ">{item.fields.Name}</p>
+                      <p className="text-lg md:text-2xl font-medium whitespace-nowrap">{item.fields.Name}</p>
                     </div>
                   </motion.div>
                 ))}
@@ -199,7 +199,7 @@ function Results() {
                 exit={{ opacity: 0, x: 300 }}
                 viewport={{ once: true }}
               >
-                <div className="max-w-[450px]  mx-auto shadow-xl relative poster-card ">
+                <div className="max-w-[450px] rounded-lg overflow-hidden  mx-auto shadow-xl relative poster-card ">
 
                   <img src={result[0].stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
 
@@ -218,7 +218,7 @@ function Results() {
                       </div>
 
                       <div className="flex flex-col items-center justify-between gap-1  h-fit">
-                        <p className=" w-full bg-blue-800  flex items-center justify-center py-1 px-4 rounded-full text-white font-semibold">
+                        <p className=" w-full bg-blue-800 md:text-[14px] text-[10px] flex items-center justify-center py-1 px-4 rounded-full text-white font-semibold">
                           Fine Arts {result[0].stage} Result
                         </p>
 
@@ -232,11 +232,11 @@ function Results() {
                           {result[0].records.map((record, index) => (
                             <div key={index} className="flex gap-4 items-start">
                               <div>
-                                <img src={getBadgeImage(record.fields.Place)} alt={`Badge ${record.fields.Place}`} className="top-0 respo-badge" />
+                                <img src={getBadgeImage(record.fields.Place)} alt={`Badge ${record.fields.Place}`} className="top-0 respo-badge max-w-8 md:max-w-10" />
                               </div>
 
                               <div className="mt-1">
-                                <p className="font-semibold  respo-winner">{record.fields.Name}</p>
+                                <p className="font-semibold respo-winner ">{record.fields.Name}</p>
                                 <p className=" ml-2 respo-winner-year">{record.fields.Department}  ({record.fields.Year} year)</p>
                               </div>
                               <div>

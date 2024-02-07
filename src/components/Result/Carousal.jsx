@@ -174,7 +174,7 @@ const Carousal = () => {
                 whileInView={{ opacity: 1, scale: 1, transition: { duration: .5, delay: 0.1 } }}
                 viewport={{ once: true }}
               >
-                <div className='rounded-md result-card-respo'>
+                <div className='rounded-xl result-card-respo overflow-hidden'>
                   <div className="max-w-[400px]  mx-auto shadow-xl relative ">
                     <img src={item.stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover responsive-poster-img" />
 
