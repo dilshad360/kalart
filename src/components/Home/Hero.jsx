@@ -62,7 +62,7 @@ function Hero() {
                         <img src={ContentImage} alt="content" className=' responsive-content-img' />
                     </div>
 
-                    <div className='mt-10 p-4  text-center md:text-left flex flex-col gap-4 max-w-[600px] mx-auto responsive-content-text basis-9/12 justify-center items-center text-sm'>
+                    <div className='mt-10 p-4  text-center md:text-left flex flex-col gap-4 max-w-[600px] mx-auto responsive-content-text basis-9/12 justify-center items-center'>
                         <p className=''>
                             Welcome to EMEA College of Arts & Science's vibrant world of creativity! Immerse yourself in the magic of
                             {/* <strong className='font-black text-lg'>
