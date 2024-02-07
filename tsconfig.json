@@ -13,5 +13,5 @@
     },
     "include": ["src/components/SideBar/* "," ./components/Link "],
     "exclude": ["node_modules"]
-  }
+}
   

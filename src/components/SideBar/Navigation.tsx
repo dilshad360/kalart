@@ -12,11 +12,11 @@ const variants = {
 };
 
 const items = [
-  { name: 'Home', link: 'hero', color: '#FF008C' },
-  { name: 'Score Board', link: 'scoreBoard', color: '#D309E1' },
-  { name: 'Result', link: '/results', color: '#9C1AFF' },
-  { name: 'Committee', link: 'committee', color: '#7700FF' },
-  { name: 'Captains', link: 'captains', color: '#4400FF' }
+  { name: 'Home', link: 'hero', color: 'brown' },
+  { name: 'Score Board', link: 'scoreBoard', color: 'brown' },
+  { name: 'Result', link: '/results', color: 'brown' },
+  { name: 'Committee', link: 'committee', color: 'brown' },
+  { name: 'Captains', link: 'captains', color: 'brown' }
 ];
 const closeSidebar = () => {
   console.log('clickedwww');

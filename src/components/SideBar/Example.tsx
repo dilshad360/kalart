@@ -52,7 +52,7 @@ export const Example = () => {
       ref={containerRef}
       className={isOpen ? "sideBarOpen" : "sideBarClosed"}
     >
-      <motion.div className="background backdrop-blur-sm" variants={sidebar} />
+      <motion.div className="background backdrop-blur-lg " variants={sidebar} />
       <div className={closedClass}>
         <Navigation closeSidebar={closeSidebar} />
       </div>
