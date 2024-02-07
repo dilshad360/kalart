@@ -287,7 +287,7 @@
 
 
 .responsive-content-img {
-    width: 360px;
+    width: 320px;
   }
   
   .responsive-content-img-card {
@@ -336,7 +336,7 @@
   
     .responsive-content-text>p {
       text-align: left;
-      font-size: 22px;
+      font-size: 18px;
     }
     
   }
@@ -351,7 +351,7 @@
         width: 480px;
       }
       .responsive-content-text>p {
-        font-size: 28px;
+        font-size: 20px;
       }
       .responsive-content-text{
         max-width: 1000px !important;
@@ -364,10 +364,10 @@
         margin-top: -200px;
     }
     .responsive-content-img {
-      width: 580px;
+      width: 500px;
     }
     .responsive-content-text>p {
-      font-size: 32px;
+      font-size: 24px;
     }
   }
     
