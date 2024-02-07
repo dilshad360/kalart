@@ -27,7 +27,7 @@ function Captains() {
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
                     <div>
-                        <img src={Bsc} alt="Bsc" className='responsive-image-captains' />
+                        <img src={Bsc} alt="Bsc" className='responsive-image-captains flex' />
                         <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                             <p>Sabik</p>
                             <p>Ansaba</p>
@@ -50,7 +50,7 @@ function Captains() {
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
-                    <img src={Bvoc} alt="Bvoc" className='responsive-image-captains' />
+                    <img src={Bvoc} alt="Bvoc" className='responsive-image-captains flex' />
                     <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                         <p>Adhila</p>
                         <p>Riya Hanna</p>
@@ -71,7 +71,7 @@ function Captains() {
                         <hr className='border-[1.5px] border-red-900 w-1/2 mx-auto' />
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
-                    <img src={Arts} alt="Arts" className='responsive-image-captains' />
+                    <img src={Arts} alt="Arts" className='responsive-image-captains flex' />
                     <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                         <p>Arsalan KT</p>
                         <p>gopika p</p>
@@ -93,7 +93,7 @@ function Captains() {
                         {/* <span className='h-4 w-4 bg-red-900 rotate-45 absolute -right-2'></span> */}
                         <span className='h-0 w-0 border-b-[15px] border-t-[15px] border-r-[30px] border-r-red-900 border-transparent absolute -right-4'></span>
                     </div>
-                    <img src={Commerce} alt="Commerce" className='responsive-image-captains' />
+                    <img src={Commerce} alt="Commerce" className='responsive-image-captains flex' />
                     <div className='flex justify-around font-semibold text-blue-950 capitalize max-w-[75%] mx-auto text-[10px] md:text-[16px]'>
                         <p>Mirshad</p>
                         <p>Juniad</p>

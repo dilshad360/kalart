@@ -38,10 +38,10 @@ export const MenuItem = ({ item, closeSidebarOK }) => {
     >
 
       <div className='flex gap-4 text-xl pl-12 py-2 '  >
-        {link === '/results' ? <NavLink to={link} onClick={handleClick} style={style} className='navlink w-40 flex items-center justify-center rounded-xl py-1  text-orange-900 font-semibold'>{name}</NavLink> :
+        {link === '/results' ? <NavLink to={link} onClick={handleClick} style={style} className='navlink w-48 flex items-center justify-center rounded-xl py-1  text-orange-900 font-semibold'>{name}</NavLink> :
           <Link
             activeClass="navActive2"
-            className='navlink w-40 flex items-center justify-center rounded-xl py-1 text-orange-900 font-semibold z-0'
+            className='navlink w-48 flex items-center justify-center rounded-xl py-1 text-orange-900 font-semibold z-0'
             to={link}
             spy={true}
             smooth={true}
