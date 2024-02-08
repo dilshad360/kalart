@@ -59,7 +59,7 @@ function Results() {
       const tableName = "Result";
       const filterBy = `{Program} = '${item.fields.Name}'`;
       const sortField = "Point";
-      const sortDirection = `asc`;
+      const sortDirection = 'asc';
       const Records = await fetchRecords(
         tableName,
         filterBy,

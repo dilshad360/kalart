@@ -4,7 +4,7 @@ import Captains from './components/Home/Captains'
 import Footer from './components/Home/Footer'
 import Committe from './components/Home/Committe'
 import ScoreBoard from './components/Home/ScoreBoard'
-import Individual from './components/Home/Individual'
+// import Individual from './components/Home/Individual'
 import Result from './components/Home/Result'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCableCar } from '@fortawesome/free-solid-svg-icons';
@@ -45,7 +45,7 @@ function Home() {
         <div id='scoreBoard'>
           <ScoreBoard />
           <Result />
-          <Individual />
+          {/* <Individual /> */}
         </div>
         <Committe />
         <Captains />

@@ -6,7 +6,7 @@ import ContentImage from '../../assets/ARTSlogo.png';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar } from '@fortawesome/free-regular-svg-icons';
 import '../../styles/Hero.css';
-import { TypeAnimation } from 'react-type-animation';
+// import { TypeAnimation } from 'react-type-animation';
 
 function Hero() {
 
@@ -23,8 +23,8 @@ function Hero() {
                     <div className='child-1-parent'>
                         <h1 className="child-1">“Vision Unveils: </h1>
                         <h1 className="child-2">
-                            {/* The Artistry Within” */}
-                            <TypeAnimation
+                            The Artistry Within”
+                            {/* <TypeAnimation
                                 sequence={[
                                     // Same substring at the start will only be typed out once, initially
                                     'The Artistry Within”',
@@ -38,7 +38,7 @@ function Hero() {
                                 className='child-2'
                                 style={{ display: 'inline-block' }}
                                 repeat={Infinity}
-                            />
+                            /> */}
                         </h1>
                     </div>
                     <div>

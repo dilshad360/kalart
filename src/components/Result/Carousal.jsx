@@ -205,7 +205,7 @@ const Carousal = () => {
                               </div>
                               <div>
                                 <p className="font-semibold max-text-[16px]">{record.fields.Name}</p>
-                                <p className="text-[13px] ml-2">{record.fields.Department}  ({record.fields.Year} year)</p>
+                                <p className="text-[13px] ml-2">{record.fields.Department} {record.fields.Year && <span> ({record.fields.Year} year) </span> }</p>
                               </div>
                               <div>
                                 {/* white space */}
