@@ -61,35 +61,35 @@ function NavBar() {
         </Link>
 
 
-        <div className='flex gap-10 text-xl'>
+        <div className='flex gap-10 text-xl '>
           <Link
             activeClass="navActive"
-            className='navlink'
+            className='navlink font-semibold'
             to="hero"
             spy={true}
             smooth={true}
             offset={0}
             duration={500} >Home</Link>
           <Link activeClass="navActive"
-            className='navlink'
+            className='navlink font-semibold'
             to="scoreBoard"
             spy={true}
             smooth={true}
             offset={-100}
             duration={500} >Score Board</Link>
           <NavLink
-            className='navlink'
+            className='navlink font-semibold'
             to="/results"
           >Result</NavLink>
           <Link activeClass="navActive"
-            className='navlink'
+            className='navlink font-semibold' 
             to="committee"
             spy={true}
             smooth={true}
             offset={-100}
             duration={500} >Committee</Link>
           <Link activeClass="navActive"
-            className='navlink'
+            className='navlink font-semibold'
             to="captains"
             spy={true}
             smooth={true}

@@ -6,7 +6,7 @@ import BgMain from "../assets/bg-kathakali.png";
 import bglogo from "../assets/bg-blurlogo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import offStagePoster from '../assets/Poster/offstage.jpg';
+import offStagePoster from '../assets/Poster/offStage.jpg';
 import onStagePoster from '../assets/Poster/onstage.jpg';
 import Firstbadge from '../assets/Poster/1st.png';
 import Secondbadge from '../assets/Poster/2nd.png';
@@ -17,11 +17,13 @@ import html2canvas from 'html2canvas';
 import Congrats from '../assets/Poster/cngrts.png';
 import "../styles/Result.css";
 
+
+
 function Results() {
   const [resultList, setResultList] = useState([]);
   const [search, setSearch] = useState("");
   const [result, setResult] = useState([]);
-  const [showResultCard , setShowResultList] = useState(true);
+  const [showResultCard, setShowResultList] = useState(true);
   const [showCard, setShowCard] = useState(false);
 
 
@@ -105,7 +107,18 @@ function Results() {
     a.click();
   };
 
-
+  const groupRecordsByPlace = (records) => {
+    const groupedRecords = {};
+    records.forEach((record) => {
+      const place = record.fields.Place;
+      if (!groupedRecords[place]) {
+        groupedRecords[place] = [];
+      }
+      groupedRecords[place].push(record);
+    });
+    // console.log(groupedRecords);
+    return groupedRecords;
+  };
   return (
     <div className="relative h-screen overflow-y-scroll overflow-x-hidden">
 
@@ -142,50 +155,50 @@ function Results() {
               setShowCard(false)
             }}
           />
-          { showResultCard && (
+          {showResultCard && (
             <>
-          { resultList.length ? (
-            <div className="flex justify-center items-center gap-4 flex-wrap p-1">
-              <AnimatePresence>
-                {resultList.filter((val) => {
-                  if (search === "") {
-                    return val;
-                  } else if (
-                    val.fields.Name.toLowerCase().includes(search.toLowerCase())
-                  ) {
-                    return val;
-                  }
-                }).map((item, index) => (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0, x: -300 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.2, delay: index * 0.1 }}
-                    animate={{ x: 0, opacity: 1, scale: 1 }}
-                    exit={{ x: 300, opacity: 0, scale: 0 }}
-                    key={index}
-                  >
-                    <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
-                      <p className="text-lg md:text-2xl font-medium whitespace-nowrap">{item.fields.Name}</p>
-                    </div>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
-              {/* When search result empty error msg */}
-              {resultList.filter((val) => val.fields.Name.toLowerCase().includes(search.toLowerCase())).length === 0 && (
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 1 } }}
-                  exit={{ opacity: 0, y: -20 }}
-                  className="text-rose-500 font-semibold"
-                >
-                  No search Found
-                </motion.div>
+              {resultList.length ? (
+                <div className="flex justify-center items-center gap-4 flex-wrap p-1">
+                  <AnimatePresence>
+                    {resultList.filter((val) => {
+                      if (search === "") {
+                        return val;
+                      } else if (
+                        val.fields.Name.toLowerCase().includes(search.toLowerCase())
+                      ) {
+                        return val;
+                      }
+                    }).map((item, index) => (
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0, x: -300 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.2, delay: index * 0.1 }}
+                        animate={{ x: 0, opacity: 1, scale: 1 }}
+                        exit={{ x: 300, opacity: 0, scale: 0 }}
+                        key={index}
+                      >
+                        <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
+                          <p className="text-lg md:text-2xl font-medium whitespace-nowrap">{item.fields.Name}</p>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </AnimatePresence>
+                  {/* When search result empty error msg */}
+                  {resultList.filter((val) => val.fields.Name.toLowerCase().includes(search.toLowerCase())).length === 0 && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 1 } }}
+                      exit={{ opacity: 0, y: -20 }}
+                      className="text-rose-500 font-semibold"
+                    >
+                      No search Found
+                    </motion.div>
+                  )}
+                </div>
+              ) : (
+                <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
               )}
-            </div>
-          ) : (
-            <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
-          )}
-          </>
+            </>
           )}
         </div>
 
@@ -200,12 +213,9 @@ function Results() {
                 viewport={{ once: true }}
               >
                 <div className="max-w-[450px] rounded-lg overflow-hidden  mx-auto shadow-xl relative poster-card ">
-
                   <img src={result[0].stage === "OFF STAGE" ? offStagePoster : onStagePoster} alt="offStagePoster" className="w-full h-auto object-cover" />
-
-                  <div className="top-0 left-0 right-0 bottom-0 absolute overflow-auto">
-                    <div className="flex flex-col gap-4 md:justify-between items-center h-full w-full p-2  ">
-
+                  <div className="top-0 left-0 right-0 bottom-0 absolute overflow-auto ">
+                    <div className="flex flex-col gap-4 md:justify-between items-center h-full w-full p-2  md:scale-100">
                       <div className="flex flex-col items-center justify-between  basis-4/12 p-3">
 
                         <div>
@@ -228,38 +238,39 @@ function Results() {
                           </p>
                         </div>
                         <div className="flex flex-col bg-white/70 rounded-xl py-3 p-5 gap-2 respo-result-card">
-
-                          {result[0].records.map((record, index) => (
-                            <div key={index} className="flex gap-4 items-start">
+                          {/* Group records by place and display badge once for each group */}
+                          {Object.entries(groupRecordsByPlace(result[0].records)).map(([place, records]) => (
+                            <div key={place} className="flex gap-4 items-start">
                               <div>
-                                <img src={getBadgeImage(record.fields.Place)} alt={`Badge ${record.fields.Place}`} className="top-0 respo-badge max-w-8 md:max-w-10" />
+                                <img src={getBadgeImage(place)} alt={`Badge ${place}`} className="top-0 respo-badge max-w-8 md:max-w-10" />
                               </div>
+                              <div className={`${records.length > 1 ? '-mt-1' : 'mt-1 '}`}>
+                                {/* Display winner(s) and department(s) for each place */}
+                                {records.map((record, index) => (
+                                  <div key={index}>
+                                    <p className={`font-semibold respo-winner ${records.length > 1 ? 'more-winners' : ''}`}>{record.fields.Name}</p>
+                                    <p className={`ml-2 respo-winner-year  ${records.length > 1 ? 'more-winners-year' : ''}`}>{record.fields.Department} {record.fields.Year && <span> ({record.fields.Year} year) </span> }</p>
+                                  </div>
+                                ))}
+                                <div>
 
-                              <div className="mt-1">
-                                <p className="font-semibold respo-winner ">{record.fields.Name}</p>
-                                <p className=" ml-2 respo-winner-year">{record.fields.Department}  {record.fields.Year && <span>( {record.fields.Year} year )</span>  } </p>
-                              </div>
-                              <div>
-                                {/* white space */}
+
+                                </div>
+
                               </div>
                             </div>
-
-                          ))}
-                          <div>
-
-
-                          </div>
-
+                              ))}
                         </div>
+                              <img src={Congrats} alt="Congrats" className="w-44 h-auto mx-auto respo-congrats" />
 
-                        <img src={Congrats} alt="Congrats" className="w-44 h-auto mx-auto respo-congrats" />
+
                       </div>
-                    </div>
-                    <div>
+                      <div>
+                      </div>
+
                     </div>
 
                   </div>
-
                 </div>
                 <button className="bg-red-900 text-white font-bold py-3 px-6 rounded-md uppercase text-[16px] mt-4 mx-auto max-w-[450px] w-full flex items-center justify-center transition-all ease-in-out hover:bg-orange-900" onClick={() => DownloadPoster(result[0].programName)}>Download Now</button>
               </motion.div>

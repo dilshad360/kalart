@@ -17,6 +17,12 @@
   width: 100%;
   
 } */
+.mySwiper2{
+  width: 100%;
+  height: auto;
+  padding-top: 0px;
+  padding-bottom: 0px !important;
+}
 .swiper-button-next, .swiper-button-prev {
   height: 10px;
   color: rgb(29, 29, 29);
@@ -114,8 +120,9 @@
 }
 
 .skeleton-item {
-  height: 300px !important;
-  width: 200px !important;
+  margin: auto !important;
+  height: 450px !important;
+  width: 300px !important;
   background-color: red;
   border-radius: 20px;
   margin-bottom: 10px; /* Adjust the spacing between skeleton items */
