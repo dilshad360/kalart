@@ -255,3 +255,13 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #220d0d; /* Change color on hover */
 }
+
+
+.explosion {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: red; /* Customize explosion appearance */
+  border-radius: 50%;
+  z-index: 30;
+}
