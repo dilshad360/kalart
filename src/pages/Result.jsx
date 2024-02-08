@@ -237,7 +237,7 @@ function Results() {
 
                               <div className="mt-1">
                                 <p className="font-semibold respo-winner ">{record.fields.Name}</p>
-                                <p className=" ml-2 respo-winner-year">{record.fields.Department}  ({record.fields.Year} year)</p>
+                                <p className=" ml-2 respo-winner-year">{record.fields.Department}  {record.fields.Year && <span>( {record.fields.Year} year )</span>  } </p>
                               </div>
                               <div>
                                 {/* white space */}
