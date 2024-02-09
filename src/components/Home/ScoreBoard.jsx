@@ -38,7 +38,7 @@ function ScoreBoard() {
     // Stop animation after 3 minutes
     const stopTimeout = setTimeout(() => {
       setAnimationRunning(false);
-    }, 5000);
+    }, 3000);
 
     return () => clearTimeout(stopTimeout);
   }, []);
@@ -50,7 +50,7 @@ function ScoreBoard() {
         <h1 className=' font-bold text-3xl text-center capitalize mb-20'>Score Board</h1>
         {scoreBoardData.length ? (
           <div className=" gap-3   responsive--scoreBoard"  >
-            {animationRunning && <Fireworks autorun={{ speed: 2 }} />}
+            {animationRunning && <Fireworks autorun={{ speed: 1 }} />}
             {scoreBoardData.map((item, index) => (
               <>
 
