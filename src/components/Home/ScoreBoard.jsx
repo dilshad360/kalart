@@ -9,10 +9,13 @@ import start4 from '../../assets/star/filled/thinsmooth-4.svg';
 import start5 from '../../assets/star/filled/thinsmooth.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner } from '@fortawesome/free-solid-svg-icons';
-
+import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
+//  <Fireworks autorun={{ speed: 3 }} />
 function ScoreBoard() {
 
   const [scoreBoardData, setScoreBoardData] = useState([]);
+  const [animationRunning, setAnimationRunning] = useState(false);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -23,12 +26,21 @@ function ScoreBoard() {
         const Records = await fetchRecords(tableName, filterBy, sortField, sortDirection);
         // console.log(Records);
         setScoreBoardData(Records)
+        setAnimationRunning(true);
       } catch (error) {
         console.error(error);
       }
     }
 
     fetchData();
+
+
+    // Stop animation after 3 minutes
+    const stopTimeout = setTimeout(() => {
+      setAnimationRunning(false);
+    }, 5000);
+
+    return () => clearTimeout(stopTimeout);
   }, []);
 
 
@@ -38,11 +50,10 @@ function ScoreBoard() {
         <h1 className=' font-bold text-3xl text-center capitalize mb-20'>Score Board</h1>
         {scoreBoardData.length ? (
           <div className=" gap-3   responsive--scoreBoard"  >
+            {animationRunning && <Fireworks autorun={{ speed: 2 }} />}
             {scoreBoardData.map((item, index) => (
               <>
-              {/* <div  key={index}> */}
-              {/* by adding div and key={index} giving this for solve error but the responsive 2,2 and 1,1,1,1 and 4
-              pattern will fail  */}
+
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0 }}
@@ -51,7 +62,10 @@ function ScoreBoard() {
                   viewport={{ once: true }} className={`w-56 h-72 rounded-lg shadow-lg relative card card${index + 1}`}>
                   {/* stars for first position */}
                   {index === 0 && <div className='absolute -top-7 left-0 w-full  rounded-lg '>
+
+
                     <div className="flex h-14 gap-2 items-center justify-around">
+
                       <img src={start1} className="h-14" />
                       <img src={start2} className="h-14" />
                       <img src={start5} className="h-14" />
@@ -70,7 +84,7 @@ function ScoreBoard() {
                   </div>
                 </motion.div>
                 {index % 2 !== 0 && <div className="scoreCard--responsive" />}
-              {/* </div> */}
+                {/* </div> */}
               </>
 
             ))}
