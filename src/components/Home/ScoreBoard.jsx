@@ -42,7 +42,8 @@ function ScoreBoard() {
 
     return () => clearTimeout(stopTimeout);
   }, []);
-
+stopTimeout();
+  
 
   return (
     <div className='my-20'>
