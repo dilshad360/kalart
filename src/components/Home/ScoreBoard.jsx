@@ -27,6 +27,7 @@ function ScoreBoard() {
         // console.log(Records);
         setScoreBoardData(Records)
         setAnimationRunning(true);
+        stopTimeout();
       } catch (error) {
         console.error(error);
       }
@@ -42,8 +43,7 @@ function ScoreBoard() {
 
     return () => clearTimeout(stopTimeout);
   }, []);
-stopTimeout();
-  
+
 
   return (
     <div className='my-20'>
