@@ -30,7 +30,7 @@ function ScoreBoard() {
         // Stop animation after 3 minutes
         setTimeout(() => {
           setAnimationRunning(false);
-        }, 3000);
+        }, 7000);
 
       } catch (error) {
         console.error(error);
