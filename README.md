@@ -17,51 +17,9 @@ Kalart is a dynamic web app designed to enhance the experience of students at th
 - **HTML2Canvas**: For generating high-quality posters that can be shared instantly among students and on social media.
 - **Airtable**: Serving as our robust database and data entry platform, ensuring all information is up-to-date and easily accessible.
 
-## Getting Started
+## Live Demo
 
-Follow these steps to get Kalart up and running on your local machine for development and testing purposes.
-
-### Prerequisites
-
-Ensure you have the following installed on your local machine:
-
-- [Node.js](https://nodejs.org/)
-- [npm](https://www.npmjs.com/)
-
-### Installation
-
-1. Clone the repository:
-   ```sh
-   git clone https://github.com/your-username/kalart.git
-   ```
-2. Navigate to the project directory:
-   ```sh
-   cd kalart
-   ```
-3. Install the dependencies:
-   ```sh
-   npm install
-   ```
-
-### Running the App
-
-To start the development server, run:
-```sh
-npm run dev
-```
-This will start the app in development mode. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-### Building the App
-
-To build the app for production, run:
-```sh
-npm run build
-```
-The build artifacts will be stored in the `dist` directory.
-
-### Deployment
-
-You can deploy the app using any static site hosting service, such as Vercel, Netlify, or GitHub Pages.
+Check out the live demo of Kalart [here](https://kalart.vercel.app/).
 
 ## Contributing
 
@@ -80,9 +38,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgements
 
 Kalart was built by:
-- Shamil
-- Saleel
-- Dilshad
+- [Shamil](https://github.com/muhammedshamil8)
+- [Saleel](https://www.linkedin.com/in/muhammed-saleel-cp-84064524b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) - UI/UX
+- [Dilshad](https://github.com/dilshad360)
 
 We hope Kalart enhances your arts fest experience at EMEA College of Arts and Science! Enjoy the festivities!
 
