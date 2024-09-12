@@ -144,62 +144,69 @@ function Results() {
 
 
         <div className="font-bold text-center text-4xl p-10">Results</div>
-        <div className="flex justify-center flex-col items-center">
+        <div className="flex justify-center flex-col items-center w-full">
           <input
             type="text"
             placeholder="Search Program"
-            className="bg-[#FFEACC] w-full md:w-1/3 h-12 px-6 border-none rounded-lg focus:outline-none mb-6 min-w-[300px] focus:shadow-lg transition duration-300 ease-in-out"
+            className="bg-[#FFEACC] w-full max-w-[500px] h-12 px-6 border-none rounded-lg focus:outline-none mb-6 min-w-[300px] focus:shadow-lg transition duration-300 ease-in-out"
             onChange={(e) => {
               setSearch(e.target.value);
               setShowResultList(true);
               setShowCard(false)
             }}
           />
-          {showResultCard && (
-            <>
-              {resultList.length ? (
-                <div className="flex justify-center items-center gap-4 flex-wrap p-1">
-                  <AnimatePresence>
-                    {resultList.filter((val) => {
-                      if (search === "") {
-                        return val;
-                      } else if (
-                        val.fields.Name.toLowerCase().includes(search.toLowerCase())
-                      ) {
-                        return val;
-                      }
-                    }).map((item, index) => (
+          <AnimatePresence>
+            {showResultCard && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, x: 300 }}
+                transition={{ duration: 0.3 }}
+              >
+                {resultList.length ? (
+                  <div className="flex justify-center items-center gap-4 flex-wrap p-1">
+                    <AnimatePresence>
+                      {resultList.filter((val) => {
+                        if (search === "") {
+                          return val;
+                        } else if (
+                          val.fields.Name.toLowerCase().includes(search.toLowerCase())
+                        ) {
+                          return val;
+                        }
+                      }).map((item, index) => (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0, x: -300 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ duration: 0.2, delay: index * 0.1 }}
+                          animate={{ x: 0, opacity: 1, scale: 1 }}
+                          exit={{ x: 300, opacity: 0, scale: 0 }}
+                          key={index}
+                        >
+                          <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
+                            <p className="text-lg md:text-2xl font-medium whitespace-nowrap">{item.fields.Name}</p>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </AnimatePresence>
+                    {/* When search result empty error msg */}
+                    {resultList.filter((val) => val.fields.Name.toLowerCase().includes(search.toLowerCase())).length === 0 && (
                       <motion.div
-                        initial={{ opacity: 0, scale: 0, x: -300 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.2, delay: index * 0.1 }}
-                        animate={{ x: 0, opacity: 1, scale: 1 }}
-                        exit={{ x: 300, opacity: 0, scale: 0 }}
-                        key={index}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 1 } }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="text-rose-500 font-semibold"
                       >
-                        <div className="bg-white px-6 py-2 rounded-xl cursor-pointer hover:scale-105 transition-all ease-in-out duration-300" onClick={() => getPrograms(item)}>
-                          <p className="text-lg md:text-2xl font-medium whitespace-nowrap">{item.fields.Name}</p>
-                        </div>
+                        No search Found
                       </motion.div>
-                    ))}
-                  </AnimatePresence>
-                  {/* When search result empty error msg */}
-                  {resultList.filter((val) => val.fields.Name.toLowerCase().includes(search.toLowerCase())).length === 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 20 }}
-                      animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 1 } }}
-                      exit={{ opacity: 0, y: -20 }}
-                      className="text-rose-500 font-semibold"
-                    >
-                      No search Found
-                    </motion.div>
-                  )}
-                </div>
-              ) : (
-                <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
-              )}
-            </>
+                    )}
+                  </div>
+                ) : (
+                  <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
+                )}
+              </motion.div>
           )}
+            </AnimatePresence>
         </div>
 
         <div className="mx-auto w-full my-50">
@@ -249,7 +256,7 @@ function Results() {
                                 {records.map((record, index) => (
                                   <div key={index}>
                                     <p className={`font-semibold respo-winner ${records.length > 1 ? 'more-winners' : ''}`}>{record.fields.Name}</p>
-                                    <p className={`ml-2 respo-winner-year  ${records.length > 1 ? 'more-winners-year' : ''}`}>{record.fields.Department} {record.fields.Year && <span> ({record.fields.Year} year) </span> }</p>
+                                    <p className={`ml-2 respo-winner-year  ${records.length > 1 ? 'more-winners-year' : ''}`}>{record.fields.Department} {record.fields.Year && <span> ({record.fields.Year} year) </span>}</p>
                                   </div>
                                 ))}
                                 <div>
@@ -259,9 +266,9 @@ function Results() {
 
                               </div>
                             </div>
-                              ))}
+                          ))}
                         </div>
-                              <img src={Congrats} alt="Congrats" className="w-44 h-auto mx-auto respo-congrats" />
+                        <img src={Congrats} alt="Congrats" className="w-44 h-auto mx-auto respo-congrats" />
 
 
                       </div>
