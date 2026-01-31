@@ -8,9 +8,9 @@ import start3 from '../../assets/star/filled/thinsmooth-3.svg';
 import start4 from '../../assets/star/filled/thinsmooth-4.svg';
 import start5 from '../../assets/star/filled/thinsmooth.svg';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons';
 import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
-//  <Fireworks autorun={{ speed: 3 }} />
+
 function ScoreBoard() {
 
   const [scoreBoardData, setScoreBoardData] = useState([]);
@@ -24,10 +24,9 @@ function ScoreBoard() {
         const sortField = 'Total';
         const sortDirection = 'desc';
         const Records = await fetchRecords(tableName, filterBy, sortField, sortDirection);
-        // console.log(Records);
-        setScoreBoardData(Records)
+        setScoreBoardData(Records);
         setAnimationRunning(true);
-        // Stop animation after 3 minutes
+        
         setTimeout(() => {
           setAnimationRunning(false);
         }, 7000);
@@ -38,72 +37,110 @@ function ScoreBoard() {
     }
 
     fetchData();
+  }, []);
 
+  const getMedalIcon = (index) => {
+    switch(index) {
+      case 0: return { icon: faTrophy, color: '#FFD700' }; // Gold
+      case 1: return { icon: faTrophy, color: '#C0C0C0' }; // Silver
+      case 2: return { icon: faTrophy, color: '#CD7F32' }; // Bronze
+      default: return { icon: faMedal, color: '#1e3c72' }; // Theme blue
+    }
+  };
 
-    //   // Stop animation after 3 minutes
-    //   const stopTimeout = setTimeout(() => {
-    //     setAnimationRunning(false);
-    //   }, 3000);
+  const getCardTheme = (index) => {
+    const themes = [
+      { bg: 'linear-gradient(135deg, #FFE4E4, #FFD6D6)', border: '#E1072E', text: '#E1072E' },
+      { bg: 'linear-gradient(135deg, #E5F1FF, #D6E9FF)', border: '#076BE1', text: '#076BE1' },
+      { bg: 'linear-gradient(135deg, #FFE6DC, #FFDCC8)', border: '#FF4F07', text: '#FF4F07' },
+      { bg: 'linear-gradient(135deg, #E0FFEA, #D0FFE5)', border: '#0BAE42', text: '#0BAE42' }
+    ];
+    return themes[index % themes.length];
+  };
 
-      // return () => clearTimeout(stopTimeout);
-    }, []);
+  return (
+    <div className='scoreboard-section'>
+      <div className='scoreboard-container'>
+        <h1 className='scoreboard-title'>Score Board</h1>
+        
+        {scoreBoardData.length ? (
+          <div className="leaderboard-grid">
+            {animationRunning && <Fireworks autorun={{ speed: 1 }} />}
+            
+            {scoreBoardData.map((item, index) => {
+              const medal = getMedalIcon(index);
+              const theme = getCardTheme(index);
+              
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  className="leaderboard-card"
+                  style={{
+                    background: theme.bg,
+                    borderColor: theme.border
+                  }}
+                >
+                  {/* Rank Badge */}
+                  
 
-
-    return (
-      <div className='my-20'>
-        <div className='w-full'>
-          <h1 className=' font-bold text-3xl text-center capitalize mb-20'>Score Board</h1>
-          {scoreBoardData.length ? (
-            <div className=" gap-3   responsive--scoreBoard"  >
-              {animationRunning && <Fireworks autorun={{ speed: 1 }} />}
-              {scoreBoardData.map((item, index) => (
-                <>
-
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.2, delay: index * 0.1 }}
-                    viewport={{ once: true }} className={`w-56 h-72 rounded-lg shadow-lg relative card card${index + 1}`}>
-                    {/* stars for first position */}
-                    {index === 0 && <div className='absolute -top-7 left-0 w-full  rounded-lg '>
-
-
-                      <div className="flex h-14 gap-2 items-center justify-around">
-
-                        <img src={start1} className="h-14" />
-                        <img src={start2} className="h-14" />
-                        <img src={start5} className="h-14" />
+                  {/* Stars for first position */}
+                  {index === 0 && (
+                    <div className="winner-stars">
+                      <div className="stars-row">
+                        <img src={start1} className="star" alt="star" />
+                        <img src={start2} className="star" alt="star" />
+                        <img src={start5} className="star" alt="star" />
                       </div>
-                      <div className="flex items-center justify-around mx-6">
-                        <img src={start3} className="h-10" />
-                        <img src={start4} className="h-10" />
+                      <div className="stars-row-small">
+                        <img src={start3} className="star-small" alt="star" />
+                        <img src={start4} className="star-small" alt="star" />
                       </div>
-                    </div>}
-                    {/* custom css for Positons */}
-                    <div className={`absolute text-9xl font-bold top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0 card-child-${index + 1}`}>{index + 1}</div>
-                    <div className="flex  items-center justify-center w-full h-full z-10 text-center flex-col">
-                      <h6 className={` text-3xl uppercase mt-20 font-bold card-team-${index + 1}`}> {item.fields.Name === 'BSC' ? 'SCIENCE' : item.fields.Name}</h6>
-
-                      <span className="mt-14 text-center text-2xl mx-auto font-bold">{item.fields.Total} <span className="font-semibold text-lg">pts</span></span>
                     </div>
-                  </motion.div>
-                  {index % 2 !== 0 && <div className="scoreCard--responsive" />}
-                  {/* </div> */}
-                </>
+                  )}
 
-              ))}
-            </div>
-          ) : (<div className="mx-auto my-4 w-full  flex items-center justify-center">
-            <span className="font-semibold mx-auto">Loading<FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" /></span>
-          </div>)
-          }
-        </div>
+                  {/* Team Info */}
+                  <div className="team-info">
+                    <div className="team-layout">
+                      <h3 
+                        className="team-name"
+                        style={{ color: theme.text }}
+                      >
+                        {item.fields.Name === 'BSC' ? 'SCIENCE' : item.fields.Name}
+                      </h3>
+                      
+                      <div className="score-display">
+                        <span className="score-number">{item.fields.Total}</span>
+                        <span className="score-label">pts</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Background Number */}
+                  <div 
+                    className="bg-number"
+                    style={{ color: theme.text, opacity: 0.1 }}
+                  >
+                    {index + 1}
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        ) : (
+          <div className="loading-container">
+            <span className="loading-text">
+              Loading
+              <FontAwesomeIcon icon={faSpinner} className="animate-spin ml-2" />
+            </span>
+          </div>
+        )}
       </div>
+    </div>
+  );
+}
 
-
-    )
-  }
-
-
-export default ScoreBoard
+export default ScoreBoard;

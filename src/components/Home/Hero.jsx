@@ -1,17 +1,40 @@
 /* eslint-disable react/no-unescaped-entities */
-import HeroImage from '../../assets/hero.png';
-import Logo2 from '../../assets/logo2.svg';
-import Shadow from '../../assets/shadow.png';
-import ContentImage from '../../assets/ARTSlogo.png';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCalendar } from '@fortawesome/free-regular-svg-icons';
+import Logo2 from '../../assets/logo.jpeg';
+import { Link, NavLink } from 'react-scroll';
+import { NavLink as RouterNavLink } from 'react-router-dom';
 import '../../styles/Hero.css';
 
 function Hero() {
 
     return (
-        <div >
-            
+        <div className="hero-container">
+            <div className="hero-content">
+                {/* Centered Logo */}
+                <div className="hero-logo">
+                    <img src={Logo2} alt="Logo" className="hero-logo-img rounded-2xl" />
+                </div>
+                
+                {/* Navigation Buttons */}
+                <div className="hero-navigation">
+                    <Link
+                        to="scoreBoard"
+                        spy={true}
+                        smooth={true}
+                        offset={-100}
+                        duration={500}
+                        className="hero-nav-btn"
+                    >
+                        Score Board
+                    </Link>
+                    
+                    <RouterNavLink
+                        to="/results"
+                        className="hero-nav-btn"
+                    >
+                        Result
+                    </RouterNavLink>
+                </div>
+            </div>
         </div>
     )
 }
