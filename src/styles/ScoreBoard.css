@@ -109,7 +109,7 @@
 
 /* ScoreBoard Section */
 .scoreboard-section {
- 
+height: 100vh;
   padding: 4rem 0;
 
 }
@@ -150,7 +150,6 @@
   justify-content: space-between;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  overflow: hidden;
 }
 
 .leaderboard-card:hover {
@@ -393,4 +392,12 @@
   .leaderboard-grid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.crown {
+  position: absolute;
+  top: -62px;
+  left: -30px;
+  width: 120px;
+  height: auto;
 }

@@ -2,14 +2,11 @@ import { useEffect, useState } from "react";
 import { fetchRecords } from "../../utils/airtableService";
 import { motion } from "framer-motion"
 import '../../styles/ScoreBoard.css';
-import start1 from '../../assets/star/filled/thinsmooth-1.svg';
-import start2 from '../../assets/star/filled/thinsmooth-2.svg';
-import start3 from '../../assets/star/filled/thinsmooth-3.svg';
-import start4 from '../../assets/star/filled/thinsmooth-4.svg';
-import start5 from '../../assets/star/filled/thinsmooth.svg';
+import crown from '../../assets/star/crown.webp';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSpinner, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons';
-import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
+// import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 
 function ScoreBoard() {
 
@@ -49,14 +46,26 @@ function ScoreBoard() {
   };
 
   const getCardTheme = (index) => {
-    const themes = [
-      { bg: 'linear-gradient(135deg, #FFE4E4, #FFD6D6)', border: '#E1072E', text: '#E1072E' },
-      { bg: 'linear-gradient(135deg, #E5F1FF, #D6E9FF)', border: '#076BE1', text: '#076BE1' },
-      { bg: 'linear-gradient(135deg, #FFE6DC, #FFDCC8)', border: '#FF4F07', text: '#FF4F07' },
-      { bg: 'linear-gradient(135deg, #E0FFEA, #D0FFE5)', border: '#0BAE42', text: '#0BAE42' }
-    ];
-    return themes[index % themes.length];
-  };
+  const themes = [
+    { bg: 'linear-gradient(135deg, #FFE4E4, #FFD6D6)', border: '#E1072E', text: '#E1072E' }, // red
+    { bg: 'linear-gradient(135deg, #E5F1FF, #D6E9FF)', border: '#076BE1', text: '#076BE1' }, // blue
+    { bg: 'linear-gradient(135deg, #FFE6DC, #FFDCC8)', border: '#FF4F07', text: '#FF4F07' }, // orange
+    { bg: 'linear-gradient(135deg, #E0FFEA, #D0FFE5)', border: '#0BAE42', text: '#0BAE42' }, // green
+
+    { bg: 'linear-gradient(135deg, #F3E8FF, #E9D5FF)', border: '#7C3AED', text: '#7C3AED' }, // purple
+    { bg: 'linear-gradient(135deg, #FFF7D6, #FFEFA8)', border: '#D4A017', text: '#D4A017' }, // yellow
+    { bg: 'linear-gradient(135deg, #E0F7FA, #CFFAFE)', border: '#0891B2', text: '#0891B2' }, // cyan
+    { bg: 'linear-gradient(135deg, #FDE2FF, #FBCFE8)', border: '#C026D3', text: '#C026D3' }, // pink
+
+    { bg: 'linear-gradient(135deg, #E6F4F1, #CDEBE5)', border: '#0F766E', text: '#0F766E' }, // teal
+    { bg: 'linear-gradient(135deg, #FFF1E6, #FFE4CC)', border: '#EA580C', text: '#EA580C' }, // deep orange
+    { bg: 'linear-gradient(135deg, #E8EDFF, #DDE4FF)', border: '#3730A3', text: '#3730A3' }, // indigo
+    { bg: 'linear-gradient(135deg, #F5F5F5, #E5E5E5)', border: '#525252', text: '#525252' }  // gray
+  ];
+
+  return themes[index % themes.length];
+};
+
 
   return (
     <div className='scoreboard-section'>
@@ -65,7 +74,7 @@ function ScoreBoard() {
         
         {scoreBoardData.length ? (
           <div className="leaderboard-grid">
-            {animationRunning && <Fireworks autorun={{ speed: 1 }} />}
+            {/* {animationRunning && <Fireworks autorun={{ speed: 1 }} />} */}
             
             {scoreBoardData.map((item, index) => {
               const medal = getMedalIcon(index);
@@ -89,16 +98,9 @@ function ScoreBoard() {
 
                   {/* Stars for first position */}
                   {index === 0 && (
-                    <div className="winner-stars">
-                      <div className="stars-row">
-                        <img src={start1} className="star" alt="star" />
-                        <img src={start2} className="star" alt="star" />
-                        <img src={start5} className="star" alt="star" />
-                      </div>
-                      <div className="stars-row-small">
-                        <img src={start3} className="star-small" alt="star" />
-                        <img src={start4} className="star-small" alt="star" />
-                      </div>
+                    <div className="winner-stars" style={{width: '100%'}}>
+                       <img src={crown} className="crown" width={500} height={500} alt="star" />
+                     
                     </div>
                   )}
 

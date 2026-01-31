@@ -33,13 +33,6 @@ function Home() {
   return (
     <div className='mx-auto overflow-hidden select-none'>
       <Hero />
-      <div className='container mx-auto'>
-        <div id='scoreBoard'>
-          <ScoreBoard />
-          <Result />
-          {/* <Individual /> */}
-        </div>
-      </div>
       <Footer />
     </div>
   )

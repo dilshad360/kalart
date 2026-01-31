@@ -3,6 +3,7 @@ import Home from './App';
 import Results from './pages/Result';
 import PageTransition from './PageTransition';
 import Launch from './pages/Launch';
+import ScoreBoard from './components/Home/ScoreBoard';
 
 function Router() {
   return (
@@ -11,6 +12,7 @@ function Router() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/results" element={<Results />} />
+           <Route path="/scoreboard" element={<ScoreBoard />} />
           <Route path="/launch" element={<Launch />} />
           <Route path="*" element={<Home />} />
         </Routes>

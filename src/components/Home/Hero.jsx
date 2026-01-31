@@ -16,8 +16,8 @@ function Hero() {
                 
                 {/* Navigation Buttons */}
                 <div className="hero-navigation">
-                    <Link
-                        to="scoreBoard"
+                     <RouterNavLink
+                        to="/scoreboard"
                         spy={true}
                         smooth={true}
                         offset={-100}
@@ -25,7 +25,7 @@ function Hero() {
                         className="hero-nav-btn"
                     >
                         Score Board
-                    </Link>
+                    </RouterNavLink>
                     
                     <RouterNavLink
                         to="/results"
