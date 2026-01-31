@@ -81,20 +81,6 @@ function NavBar() {
             className='navlink font-semibold'
             to="/results"
           >Result</NavLink>
-          <Link activeClass="navActive"
-            className='navlink font-semibold' 
-            to="committee"
-            spy={true}
-            smooth={true}
-            offset={-100}
-            duration={500} >Committee</Link>
-          <Link activeClass="navActive"
-            className='navlink font-semibold'
-            to="captains"
-            spy={true}
-            smooth={true}
-            offset={-50}
-            duration={500} >Captains</Link>
         </div>
       </div>
     </div>

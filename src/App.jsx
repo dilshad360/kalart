@@ -47,8 +47,8 @@ function Home() {
           <Result />
           {/* <Individual /> */}
         </div>
-        <Committe />
-        <Captains />
+        {/* <Committe /> */}
+        {/* <Captains /> */}
       </div>
       <Footer />
 
