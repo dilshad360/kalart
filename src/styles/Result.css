@@ -1,7 +1,10 @@
-
-
 .poster-card{
-
+  position: relative;
+  width: 450px !important;
+  height: 634px !important;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
 .respo-union{
     width: 160px;
@@ -35,6 +38,50 @@
     font-size: 18px;
 }
 
+
+@media (max-width:768px) {
+    .poster-card {
+        width: 100% !important;
+        max-width: 450px;
+        height: auto !important;
+        aspect-ratio: 450/634;
+    }
+    
+    .respo-union {
+        width: 140px !important;
+    }
+    
+    .respo-logo {
+        width: 200px !important;
+    }
+    
+    .respo-stage {
+        font-size: 15px !important;
+        padding: 4px 20px !important;
+    }
+    
+    .respo-program {
+        font-size: 18px !important;
+        padding: 4px 0px !important;
+    }
+    
+    .respo-badge {
+        max-width: 40px !important;
+    }
+    
+    .respo-winner {
+        font-size: 14px !important;
+        margin-top: 3px;
+    }
+    
+    .respo-winner-year {
+        font-size: 13px !important;
+    }
+    
+    .respo-congrats {
+        width: 150px !important;
+    }
+}
 
 @media (max-width:600px) {
     .respo-union{
@@ -70,69 +117,129 @@
     }
 }
 @media (max-width:540px) {
-    .respo-union{
-        width: 120px;
+    .poster-card {
+        width: 100% !important;
+        max-width: 400px;
+        aspect-ratio: 400/562;
     }
-    .respo-logo{
-        width: 160px ;
-    }
-    .respo-stage{
-        font-size: 10px;
-        padding: 4px 26px !important;
-    }
-    .respo-program{
-        font-size: 14px;
-        padding: 4px 0px !important;
-    }
-    .respo-result-card{
     
+    .respo-union {
+        width: 120px !important;
     }
-    .respo-badge{
-        max-width: 36px;
+    
+    .respo-logo {
+        width: 160px !important;
     }
-    .respo-winner{
-        margin-top: 4px;
-        font-size: 14px;
+    
+    .respo-stage {
+        font-size: 12px !important;
+        padding: 3px 16px !important;
     }
-    .respo-winner-year{
-        font-size: 10px;
+    
+    .respo-program {
+        font-size: 16px !important;
+        padding: 3px 0px !important;
     }
-    .respo-congrats{
-        text-align: center;
-        font-size: 14px;
+    
+    .respo-badge {
+        max-width: 36px !important;
+    }
+    
+    .respo-winner {
+        font-size: 13px !important;
+        margin-top: 2px;
+    }
+    
+    .respo-winner-year {
+        font-size: 11px !important;
+    }
+    
+    .respo-congrats {
+        width: 130px !important;
     }
 }
 @media (max-width:445px) {
-    .respo-union{
-        width: 100px;
+    .poster-card {
+        width: 100% !important;
+        max-width: 350px;
+        aspect-ratio: 350/492;
     }
-    .respo-logo{
-        width: 140px ;
-    }
-    .respo-stage{
-        font-size: 8px;
-        padding: 4px 26px !important;
-    }
-    .respo-program{
-        font-size: 12px;
-        padding: 4px 0px !important;
-    }
-    .respo-result-card{
     
+    .respo-union {
+        width: 100px !important;
     }
-    .respo-badge{
-        max-width: 30px;
+    
+    .respo-logo {
+        width: 140px !important;
     }
-    .respo-winner{
-        margin-top: 4px;
-        font-size: 12px;
+    
+    .respo-stage {
+        font-size: 10px !important;
+        padding: 2px 12px !important;
     }
-    .respo-winner-year{
-        font-size: 8px;
+    
+    .respo-program {
+        font-size: 14px !important;
+        padding: 2px 0px !important;
     }
-    .respo-congrats{
-        text-align: center;
-        font-size: 12px;
+    
+    .respo-badge {
+        max-width: 32px !important;
+    }
+    
+    .respo-winner {
+        font-size: 12px !important;
+        margin-top: 2px;
+    }
+    
+    .respo-winner-year {
+        font-size: 10px !important;
+    }
+    
+    .respo-congrats {
+        width: 110px !important;
+    }
+}
+@media (max-width:375px) {
+    .poster-card {
+        width: 100% !important;
+        max-width: 320px;
+        aspect-ratio: 320/450;
+    }
+    
+    .respo-union {
+        width: 90px !important;
+    }
+    
+    .respo-logo {
+        width: 120px !important;
+    }
+    
+    .respo-stage {
+        font-size: 9px !important;
+        padding: 2px 10px !important;
+    }
+    
+    .respo-program {
+        font-size: 12px !important;
+        padding: 2px 0px !important;
+    }
+    
+    .respo-badge {
+        max-width: 28px !important;
+    }
+    
+    .respo-winner {
+        font-size: 11px !important;
+        margin-top: 1px;
+    }
+    
+    .respo-winner-year {
+        font-size: 9px !important;
+    }
+    
+    .respo-congrats {
+        width: 100px !important;
     }
 }
 

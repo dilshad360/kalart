@@ -6,8 +6,8 @@ import BgMain from "../assets/bg-kathakali.png";
 import bglogo from "../assets/bg-blurlogo.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleLeft, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import offStagePoster from '../assets/Poster/offStage.jpg';
-import onStagePoster from '../assets/Poster/onstage.jpg';
+import offStagePoster from '../assets/Poster/test.jpg';
+import onStagePoster from '../assets/Poster/test.jpg';
 import Firstbadge from '../assets/Poster/1st.png';
 import Secondbadge from '../assets/Poster/2nd.png';
 import Thirdbadge from '../assets/Poster/3rd.png';
@@ -66,13 +66,11 @@ function Results() {
         sortField,
         sortDirection
       );
-      console.log(Records);
       SingleRecord.push({
         programName: item.fields.Name,
         records: Records,
         stage: Records[0].fields.Stage,
       });
-      console.log(SingleRecord);
       setResult(SingleRecord);
       setShowCard(true);
     } catch (error) {
@@ -94,18 +92,126 @@ function Results() {
   };
 
   const DownloadPoster = async (program) => {
+  try {
     const card = document.querySelector('.poster-card');
+    
+    if (!card) {
+      alert('Poster card not found. Please try again.');
+      return;
+    }
 
-    // Adding a delay of 1000 milliseconds before capturing the canvas
-    await new Promise(resolve => setTimeout(resolve, 1000));
+    // Show loading state
+    const button = document.getElementById('download-poster-btn');
+    if (!button) {
+      alert('Download button not found. Please refresh the page.');
+      return;
+    }
+    
+    const originalText = button.textContent;
+    button.textContent = 'Generating...';
+    button.disabled = true;
 
-    const canvas = await html2canvas(card);
-    const imageUrl = canvas.toDataURL('image/jpg');
-    const a = document.createElement('a');
-    a.href = imageUrl;
-    a.download = `${program}_poster.jpg`;
-    a.click();
-  };
+    // Store current scroll position
+    const scrollX = window.scrollX;
+    const scrollY = window.scrollY;
+
+    // Scroll to top to ensure full poster is visible
+    window.scrollTo(0, 0);
+
+    // Wait for scroll to complete and any animations
+    await new Promise(resolve => setTimeout(resolve, 800));
+    
+    // Check if html2canvas is properly imported
+    if (typeof html2canvas !== 'function') {
+      throw new Error('html2canvas library not loaded properly');
+    }
+
+    // Try a simpler approach first
+    const canvas = await html2canvas(card, {
+      scale: 1, // Start with scale 1 for testing
+      useCORS: true,
+      allowTaint: false, // Try with false first
+      backgroundColor: '#ffffff',
+      scrollX: 0,
+      scrollY: 0,
+      width: card.offsetWidth,
+      height: card.offsetHeight,
+      logging: false, // Disable logging for cleaner output
+    });
+    
+    if (!canvas) {
+      throw new Error('Failed to create canvas');
+    }
+
+    // Convert to blob and download
+    canvas.toBlob((blob) => {
+      if (!blob) {
+        throw new Error('Failed to create image blob');
+      }
+      
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `${program.replace(/\s+/g, '_')}_poster.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+
+      // Restore original scroll position
+      window.scrollTo(scrollX, scrollY);
+
+      // Reset button
+      button.textContent = originalText;
+      button.disabled = false;
+    }, 'image/png', 0.9); // Use slightly lower quality for better compatibility
+
+  } catch (error) {
+    // Try alternative approach
+    try {
+      const card = document.querySelector('.poster-card');
+      const canvas = await html2canvas(card, {
+        scale: 1,
+        useCORS: false,
+        allowTaint: true,
+        backgroundColor: '#ffffff',
+        logging: false,
+      });
+      
+      canvas.toBlob((blob) => {
+        if (blob) {
+          const url = URL.createObjectURL(blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = `${program.replace(/\s+/g, '_')}_poster_alt.png`;
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          
+          const button = document.getElementById('download-poster-btn');
+          if (button) {
+            button.textContent = originalText;
+            button.disabled = false;
+          }
+        } else {
+          throw new Error('Alternative approach also failed');
+        }
+      }, 'image/jpeg', 0.8);
+      
+    } catch (altError) {
+      alert('Failed to generate poster: ' + error.message + '. Please try again or contact support.');
+      
+      // Reset button on error
+      const button = document.getElementById('download-poster-btn');
+      if (button) {
+        button.textContent = originalText;
+        button.textContent = 'Download Now';
+        button.disabled = false;
+      }
+    }
+  }
+};
 
   const groupRecordsByPlace = (records) => {
     const groupedRecords = {};
@@ -125,7 +231,7 @@ function Results() {
     
 
       {/* Main Content */}
-      <div className="relative z-40 flex flex-col items-center justify-center px-10 py-10">
+      <div className="relative z-40 flex flex-col items-center justify-center px-4 py-10">
         <NavLink to="/" className="text-black font-semibold text-lg absolute top-6 left-10 z-10 link-custom">
           <FontAwesomeIcon icon={faAngleLeft} /> &nbsp;Home
 
@@ -268,7 +374,19 @@ function Results() {
 
                   </div>
                 </div>
-                <button className="bg-red-900 text-white font-bold py-3 px-6 rounded-md uppercase text-[16px] mt-4 mx-auto max-w-[450px] w-full flex items-center justify-center transition-all ease-in-out hover:bg-orange-900" onClick={() => DownloadPoster(result[0].programName)}>Download Now</button>
+                <button 
+                  id="download-poster-btn"
+                  className="bg-red-900 text-white font-bold py-3 px-6 rounded-md uppercase text-[16px] mt-4 mx-auto max-w-[450px] w-full flex items-center justify-center transition-all ease-in-out hover:bg-orange-900 disabled:opacity-50 disabled:cursor-not-allowed" 
+                  onClick={() => {
+                    if (result && result[0] && result[0].programName) {
+                      DownloadPoster(result[0].programName);
+                    } else {
+                      alert('No result data available for download');
+                    }
+                  }}
+                >
+                  Download Now
+                </button>
               </motion.div>
 
             )
