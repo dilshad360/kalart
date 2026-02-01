@@ -117,7 +117,7 @@ height: 100vh;
 .scoreboard-container {
   max-width: 1200px;
   margin: 0 auto;
-  /* padding: 0 1rem; */
+  padding-top: 1rem;
 }
 
 .scoreboard-title {
@@ -356,7 +356,7 @@ height: 100vh;
 
 @media (max-width: 480px) {
   .scoreboard-container {
-    padding: 0 0.75rem;
+    padding: 3rem 0.75rem;
   }
   
   .leaderboard-card {

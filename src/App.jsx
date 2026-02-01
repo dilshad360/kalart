@@ -1,7 +1,4 @@
 import Hero from './components/Home/Hero'
-import Footer from './components/Home/Footer'
-import ScoreBoard from './components/Home/ScoreBoard'
-import Result from './components/Home/Result'
 import { useEffect, useState } from 'react';
 function Home() {
   const options = {
@@ -33,7 +30,6 @@ function Home() {
   return (
     <div className='mx-auto overflow-hidden select-none'>
       <Hero />
-      <Footer />
     </div>
   )
 }

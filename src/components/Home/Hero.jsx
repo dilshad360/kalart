@@ -1,5 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
-import Logo2 from '../../assets/logo.jpeg';
+import Logo2 from '../../assets/logo3.png';
 import { Link, NavLink } from 'react-scroll';
 import { NavLink as RouterNavLink } from 'react-router-dom';
 import '../../styles/Hero.css';

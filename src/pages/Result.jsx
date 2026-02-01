@@ -11,11 +11,12 @@ import onStagePoster from '../assets/Poster/test.jpg';
 import Firstbadge from '../assets/Poster/1st.png';
 import Secondbadge from '../assets/Poster/2nd.png';
 import Thirdbadge from '../assets/Poster/3rd.png';
-import Union from '../assets/Poster/40thUnion.png';
+import Union from '../assets/collegelogo.png';
 import Logo from '../assets/Poster/logo.png';
 import html2canvas from 'html2canvas';
 import Congrats from '../assets/Poster/cngrts.png';
 import "../styles/Result.css";
+import Logo2 from '../assets/logo3.png';
 
 
 
@@ -31,7 +32,7 @@ function Results() {
     const fetchData = async () => {
       try {
         const tableName = "Published Programs";
-        const filterBy = "";
+        const filterBy = "{Publish}=TRUE()";
         const sortField = "auto";
         const sortDirection = "desc";
         const Records = await fetchRecords(
@@ -273,7 +274,7 @@ function Results() {
                         <motion.div
                           initial={{ opacity: 0, scale: 0, x: -300 }}
                           whileInView={{ opacity: 1, scale: 1 }}
-                          transition={{ duration: 0.2, delay: index * 0.1 }}
+                          transition={{ duration: 0.2, delay: index * 0.05 }}
                           animate={{ x: 0, opacity: 1, scale: 1 }}
                           exit={{ x: 300, opacity: 0, scale: 0 }}
                           key={index}
@@ -308,10 +309,10 @@ function Results() {
           <AnimatePresence>
             {showCard && (
               <motion.div
-                initial={{ opacity: 0, x: -300 }}
+                initial={{ opacity: 0, x: -100 }}
                 whileInView={{ opacity: 1, x: 0, }}
-                transition={{ duration: .2, delay: 0.3 }}
-                exit={{ opacity: 0, x: 300 }}
+                transition={{ duration: .2, delay: 0.1 }}
+                exit={{ opacity: 0, x: 100 }}
                 viewport={{ once: true }}
               >
                 <div className="max-w-[450px] rounded-lg overflow-hidden  mx-auto shadow-xl relative poster-card ">
@@ -324,14 +325,14 @@ function Results() {
                           <img src={Union} alt="Union" className=" h-auto mx-auto respo-union pt-4" />
                         </div>
                         <div className="relative">
-                          <img src={Logo} alt="Logo" className=" h-auto mx-auto respo-logo" />
+                          <img src={Logo2} alt="Logo" className=" h-auto mx-auto respo-logo" />
                         </div>
 
                       </div>
 
                       <div className="flex flex-col items-center justify-between gap-1  h-fit">
                         <p className=" w-full bg-blue-800 md:text-[14px] text-[10px] flex items-center justify-center py-1 px-4 rounded-full text-white font-semibold">
-                          Fine Arts {result[0].stage} Result
+                          {result[0].stage} Result
                         </p>
 
                         <div>

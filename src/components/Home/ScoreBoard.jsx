@@ -5,7 +5,8 @@ import '../../styles/ScoreBoard.css';
 import crown from '../../assets/star/crown.webp';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSpinner, faTrophy, faMedal } from '@fortawesome/free-solid-svg-icons';
+import { faSpinner, faTrophy, faMedal, faAngleLeft } from '@fortawesome/free-solid-svg-icons';
+import { NavLink } from "react-router-dom";
 // import Fireworks from "react-canvas-confetti/dist/presets/fireworks";
 
 function ScoreBoard() {
@@ -69,6 +70,10 @@ function ScoreBoard() {
 
   return (
     <div className='scoreboard-section'>
+      <NavLink to="/" className="text-black font-semibold text-lg absolute top-6 left-10 z-10 link-custom">
+                <FontAwesomeIcon icon={faAngleLeft} /> &nbsp;Home
+      
+              </NavLink>
       <div className='scoreboard-container'>
         <h1 className='scoreboard-title'>Score Board</h1>
         
