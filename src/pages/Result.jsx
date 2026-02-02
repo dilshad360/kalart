@@ -67,9 +67,12 @@ function Results() {
         sortField,
         sortDirection
       );
+      const sortedRecords = [...Records].sort((a, b) => {
+        return Number(b.fields.Point) - Number(a.fields.Point);
+      });
       SingleRecord.push({
         programName: item.fields.Name,
-        records: Records,
+        records: sortedRecords,
         stage: Records[0].fields.Stage,
       });
       setResult(SingleRecord);
@@ -352,7 +355,7 @@ function Results() {
                                 {records.map((record, index) => (
                                   <div key={index}>
                                     <p className={`font-semibold respo-winner ${records.length > 1 ? 'more-winners' : ''}`}>{record.fields.Name}</p>
-                                    <p className={`ml-2 respo-winner-year  ${records.length > 1 ? 'more-winners-year' : ''}`}>{record.fields.Department} {record.fields.Year && <span> ({record.fields.Year} year) </span>}</p>
+                                    <p className={`ml-2 respo-winner-year  ${records.length > 1 ? 'more-winners-year' : ''}`}>{record.fields.Group_name[0]} {record.fields.Year && <span> ({record.fields.Year} year) </span>}</p>
                                   </div>
                                 ))}
                                 <div>
